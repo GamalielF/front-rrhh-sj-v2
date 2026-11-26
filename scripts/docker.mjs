@@ -18,29 +18,49 @@ function readJson(filePath) {
   return JSON.parse(stripComments(raw));
 }
 
-async function promptProjectName() {
-  const arg = process.argv[2];
-  if (arg && arg.trim().length > 0) return arg.trim();
+function normalizeBasePath(value) {
+  if (!value) return null;
+  const withLeading = value.startsWith('/') ? value : `/${value}`;
+  return withLeading.endsWith('/') ? withLeading : `${withLeading}/`;
+}
 
-  const angular = readJson(path.join(rootDir, 'angular.json'));
-  const allProjects = Object.keys(angular.projects || {});
-  const appProjects = allProjects.filter(
-    (p) => !p.startsWith('shared-') && angular.projects[p]?.architect?.build
-  );
+async function getBasePath() {
+  const arg = process.argv.find((a) => a.startsWith('--base-href='));
+  if (arg) {
+    const val = arg.split('=')[1];
+    return val ? normalizeBasePath(val) : null;
+  }
 
-  console.log('Available projects:');
-  appProjects.forEach((p, i) => console.log(`  ${i + 1}. ${p}`));
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
 
-  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
   return new Promise((resolve) => {
-    rl.question('Project name or number: ', (answer) => {
+    rl.question('Base-href: ', (answer) => {
       rl.close();
-      const num = parseInt(answer.trim(), 10);
-      if (!isNaN(num) && num >= 1 && num <= appProjects.length) {
-        resolve(appProjects[num - 1]);
-      } else {
-        resolve(answer.trim());
-      }
+      const trimmed = answer.trim();
+      resolve(trimmed ? normalizeBasePath(trimmed) : null);
+    });
+  });
+}
+
+async function getProjectName() {
+  const posArg = process.argv[2];
+  if (posArg && !posArg.startsWith('--')) {
+    return posArg.trim();
+  }
+
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  return new Promise((resolve) => {
+    rl.question('Project name: ', (answer) => {
+      rl.close();
+      const trimmed = answer.trim();
+      resolve(trimmed ? trimmed : null);
     });
   });
 }
@@ -54,19 +74,21 @@ function validateProject(name) {
   }
 }
 
-function generateDockerfile(projectName, outDir) {
+function generateDockerfile(projectName, outDir, basePath) {
   const content = `FROM node:22-alpine AS builder
 RUN corepack enable && corepack prepare pnpm@latest --activate
 WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN pnpm install --frozen-lockfile
 COPY . .
-ARG BASE_HREF=/
-RUN pnpm build:libs && pnpm ng build ${projectName} --configuration=production --base-href=$BASE_HREF
+ARG BASE_HREF=${basePath}
+ARG PROJECT_NAME=${projectName}
+RUN pnpm build:libs && pnpm exec ng build $PROJECT_NAME --configuration=production --base-href="\${BASE_HREF}"
 
 FROM nginx:1.27-alpine AS runtime
-COPY --from=builder /app/projects/${projectName}/docker/nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/dist/${projectName}/browser /usr/share/nginx/html
+ARG PROJECT_NAME=${projectName}
+COPY --from=builder /app/projects/$PROJECT_NAME/docker/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app/dist/$PROJECT_NAME/browser /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 `;
@@ -84,13 +106,17 @@ function generateNginxConf(outDir) {
     gzip_vary on;
     gzip_min_length 1024;
     gzip_types text/plain text/css application/json application/javascript text/xml application/xml image/svg+xml;
-    location ~* \\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ {
         expires 1y;
         add_header Cache-Control "public, immutable";
-        try_files \\$uri =404;
+        try_files $uri =404;
     }
     location / {
-        try_files \\$uri \\$uri/ /index.html;
+        try_files $uri \$uri/ /index.html;
+    }
+    location = /index.html {
+        internal;
+        try_files /index.html =404;
     }
     server_tokens off;
     add_header X-Frame-Options "SAMEORIGIN";
@@ -120,33 +146,9 @@ Thumbs.db
   fs.writeFileSync(dockerIgnorePath, content, 'utf8');
 }
 
-async function promptBaseHref() {
-  const flag = process.argv.find((a) => a.startsWith('--base-href='));
-  if (flag) {
-    const val = flag.split('=')[1];
-    return normalizeBaseHref(val);
-  }
-
-  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-  return new Promise((resolve) => {
-    rl.question(
-      'Base href: ',
-      (answer) => {
-        rl.close();
-        resolve(normalizeBaseHref(answer.trim()));
-      }
-    );
-  });
-}
-
-function normalizeBaseHref(value) {
-  if (!value || value === '/') return '/';
-  const withLeading = value.startsWith('/') ? value : `/${value}`;
-  return withLeading.endsWith('/') ? withLeading : `${withLeading}/`;
-}
-
 async function run() {
-  const inputName = await promptProjectName();
+  const inputName = await getProjectName();
+  const basePath = await getBasePath();
 
   if (!inputName) {
     console.error('Project name is required.');
@@ -156,22 +158,15 @@ async function run() {
   const projectName = inputName.toLowerCase().replace(/\s+/g, '-');
   validateProject(projectName);
 
-  const baseHref = await promptBaseHref();
   const outDir = path.join(rootDir, 'projects', projectName, 'docker');
 
   fs.mkdirSync(outDir, { recursive: true });
 
-  generateDockerfile(projectName, outDir);
+  generateDockerfile(projectName, outDir, basePath);
   generateNginxConf(outDir);
   generateDockerIgnore();
 
-  console.log(`\nDocker files generated for "${projectName}" in: projects/${projectName}/docker/`);
-  if (baseHref !== '/') {
-    console.log(`  Base href:  ${baseHref}  (path-based routing)`);
-    console.log(`  Traefik:    PathPrefix("${baseHref.slice(0, -1)}") + StripPrefix`);
-  } else {
-    console.log(`  Base href:  /  (subdomain routing)`);
-  }
+  console.log(`\nGenerated: projects/${projectName}/docker/`);
 }
 
 run();

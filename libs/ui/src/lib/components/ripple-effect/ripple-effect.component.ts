@@ -7,8 +7,10 @@ import {
   OnDestroy,
   ChangeDetectionStrategy,
   HostListener,
+  Inject,
+  Optional,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, APP_BASE_HREF } from '@angular/common';
 import { RippleConfig, DEFAULT_RIPPLE_CONFIG } from './ripple-effect.model';
 
 @Component({
@@ -31,7 +33,9 @@ export class RippleEffectComponent implements AfterViewInit, OnDestroy {
   private ripplesLoaded = false;
   private destroy$ = new AbortController();
 
-  constructor() {
+  constructor(
+    @Optional() @Inject(APP_BASE_HREF) private baseHref: string
+  ) {
     this.currentConfig = { ...DEFAULT_RIPPLE_CONFIG, ...this.config };
   }
 
@@ -45,14 +49,28 @@ export class RippleEffectComponent implements AfterViewInit, OnDestroy {
     this.cleanup();
   }
 
+  get resolvedImageUrl(): string {
+    if (!this.imageUrl) return '';
+    if (this.imageUrl.match(/^(https?:\/\/|data:)/)) {
+      return `url(${this.imageUrl})`;
+    }
+
+    const base = this.baseHref ? this.baseHref.replace(/\/$/, '') + '/' : '/';
+    const cleanPath = this.imageUrl.replace(/^\//, '');
+    
+    return `url(${base}${cleanPath})`;
+  }
+
   private async loadScripts(): Promise<void> {
     if (this.scriptsLoaded) return;
 
     try {
-      await this.loadScript('/js/jquery.min.js');
+      const base = this.baseHref ? this.baseHref.replace(/\/$/, '') + '/' : '/';
+
+      await this.loadScript(`${base}assets/lumen/js/jquery.min.js`);
       this.jqueryLoaded = true;
 
-      await this.loadScript('/js/jquery.ripples-min.js');
+      await this.loadScript(`${base}assets/lumen/js/jquery.ripples-min.js`);
       this.ripplesLoaded = true;
 
       this.scriptsLoaded = true;

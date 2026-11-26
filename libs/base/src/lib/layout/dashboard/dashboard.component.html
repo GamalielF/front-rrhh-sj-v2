@@ -17,3 +17,10 @@
 
   <router-outlet />
 </ui-dashboard-layout>
+
+<lumen-reauth-modal
+  *ngIf="enableReauthModal"
+  [systemTitle]="systemTitle"
+  [systemDescription]="systemDescription"
+  [logoSrc]="reauthLogoSrc"
+/>

@@ -1,18 +1,48 @@
-<ui-card [title]="'Mi rol de pago'" subtitle="Para verlo se le pedirá su número de cédula">
-  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-    @if (error()) {
-      <app-error-carga [mensaje]="error()" (reintentar)="cargar()" />
-    } @else if (ultimo()) {
-      <div class="flex flex-col gap-1">
-        <span class="text-xs text-gray-500">Último rol disponible</span>
-        <strong class="text-lg">{{ etiqueta() }}</strong>
-        <span class="text-sm text-gray-600">
+<ui-card>
+  @if (error()) {
+  <div class="py-2">
+    <app-error-carga [mensaje]="error()" (reintentar)="cargar()" />
+  </div>
+  } @else if (ultimo()) {
+  <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-6">
+    <div class="flex flex-col items-start gap-3">
+      <div class="flex flex-wrap items-center gap-2.5">
+        <span class="text-xs font-medium uppercase tracking-wider text-slate-500">
+          Último rol disponible
+        </span>
+        <span
+          class="inline-flex items-center rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700 border border-emerald-200">
           {{ periodos().length === 1 ? '1 mes disponible' : periodos().length + ' meses disponibles' }}
         </span>
       </div>
-      <ui-button variant="brand" icon="@tui.file-text" (onClick)="abrir()">Ver mi rol de pago</ui-button>
-    } @else if (!cargando()) {
-      <p class="m-0 text-sm text-gray-600">Todavía no hay roles de pago publicados.</p>
-    }
+
+      <strong class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
+        {{ etiqueta() }}
+      </strong>
+
+      <p class="m-0 text-xs sm:text-sm text-slate-500">
+        Acceso protegido mediante validación de número de cédula.
+      </p>
+
+      <div class="pt-1">
+        <ui-button variant="brand" icon="@tui.file-text" (onClick)="abrir()">
+          Ver mi rol de pago
+        </ui-button>
+      </div>
+    </div>
+
+    <div class="hidden sm:flex justify-end">
+      <img src="img/rol-pago-activo.png" alt="Ilustración de rol de pago disponible"
+        class="h-36 md:h-44 w-auto object-contain select-none pointer-events-none" />
+    </div>
   </div>
+  } @else if (!cargando()) {
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-4 py-2">
+    <p class="m-0 text-sm text-slate-600">
+      Todavía no hay roles de pago publicados.
+    </p>
+    <img src="assets/illustrations/rol-pago-vacio.png" alt="Sin roles de pago publicados"
+      class="h-24 w-auto object-contain opacity-90 select-none pointer-events-none" />
+  </div>
+  }
 </ui-card>

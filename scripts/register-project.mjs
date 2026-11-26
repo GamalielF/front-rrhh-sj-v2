@@ -165,7 +165,7 @@ function updateAngularJson(name) {
     const baseAsset = {
       glob: '**/*',
       input: 'libs/base/src/assets',
-      output: '',
+      output: 'assets/lumen',
     };
     const baseExists = buildOptions.assets.some(
       (item) => typeof item === 'object' && item.input === baseAsset.input

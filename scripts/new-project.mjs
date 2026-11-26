@@ -33,6 +33,33 @@ async function getProjectName() {
   });
 }
 
+async function getBasePath() {
+  const arg = process.argv.find((a) => a.startsWith('--base-path='));
+  if (arg) {
+    const val = arg.split('=')[1];
+    return val ? normalizeBasePath(val) : null;
+  }
+
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+
+  return new Promise((resolve) => {
+    rl.question('Base-href: ', (answer) => {
+      rl.close();
+      const trimmed = answer.trim();
+      resolve(trimmed ? normalizeBasePath(trimmed) : null);
+    });
+  });
+}
+
+function normalizeBasePath(value) {
+  if (!value) return null;
+  const withLeading = value.startsWith('/') ? value : `/${value}`;
+  return withLeading.endsWith('/') ? withLeading : `${withLeading}/`;
+}
+
 function copyDir(src, dest) {
   if (!fs.existsSync(src)) return;
   const stats = fs.statSync(src);
@@ -54,7 +81,7 @@ function copyDir(src, dest) {
 }
 
 function generateApp(name) {
-  console.log(`[1/6] Generating...`);
+  console.log(`[1/7] Generating...`);
   execSync(`pnpm ng g app ${name} --style=css --ssr=false --interactive=false`, {
     cwd: rootDir,
     stdio: 'inherit',
@@ -62,7 +89,7 @@ function generateApp(name) {
 }
 
 function copyBaseFiles(name) {
-  console.log(`[2/6] Copying base template...`);
+  console.log(`[2/7] Copying base template...`);
   const baseDir = path.join(rootDir, 'base');
   const targetDir = path.join(rootDir, 'projects', name);
   if (fs.existsSync(baseDir)) {
@@ -71,7 +98,7 @@ function copyBaseFiles(name) {
 }
 
 function cleanAppTemplate(name) {
-  console.log(`[3/6] Resetting app.html...`);
+  console.log(`[3/7] Resetting app.html...`);
   const appDir = path.join(rootDir, 'projects', name, 'src', 'app');
   const htmlFile = path.join(appDir, 'app.html');
   const componentHtmlFile = path.join(appDir, 'app.component.html');
@@ -83,7 +110,7 @@ function cleanAppTemplate(name) {
 }
 
 function updateTsConfigApp(name) {
-  console.log(`[4/6] Updating tsconfig.app.json...`);
+  console.log(`[4/7] Updating tsconfig.app.json...`);
   const tsConfigPath = path.join(rootDir, 'projects', name, 'tsconfig.app.json');
   if (!fs.existsSync(tsConfigPath)) return;
 
@@ -106,7 +133,7 @@ function updateTsConfigApp(name) {
 }
 
 function updateAngularJson(name) {
-  console.log(`[5/6] Updating angular.json...`);
+  console.log(`[5/7] Updating angular.json...`);
   const configPath = path.join(rootDir, 'angular.json');
   if (!fs.existsSync(configPath)) return;
 
@@ -133,7 +160,7 @@ function updateAngularJson(name) {
     const baseAsset = {
       glob: '**/*',
       input: 'libs/base/src/assets',
-      output: '',
+      output: 'assets/lumen',
     };
     const baseExists = buildOptions.assets.some(
       (item) => typeof item === 'object' && item.input === baseAsset.input
@@ -157,7 +184,7 @@ function updateAngularJson(name) {
 }
 
 function updatePackageJson(name) {
-  console.log(`[6/6] Updating package.json...`);
+  console.log(`[6/7] Updating package.json...`);
   const pkgPath = path.join(rootDir, 'package.json');
   if (!fs.existsSync(pkgPath)) return;
 
@@ -170,6 +197,70 @@ function updatePackageJson(name) {
   fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + '\n', 'utf8');
 }
 
+function generateGithubWorkflows(name, basePath) {
+  console.log(`[7/7] Generating GitHub workflows...`);
+  const workflowsDir = path.join(rootDir, 'projects', name, '.github', 'workflows');
+  fs.mkdirSync(workflowsDir, { recursive: true });
+
+  const basePathConfig = basePath ? `      base_path: ${basePath}` : '';
+
+  const deployYml = `name: Deploy Production
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
+
+jobs:
+  production-deploy:
+    name: Deploy ${name}
+    permissions:
+      id-token: write
+      contents: read
+    uses: COACSanJose/lumen/.github/workflows/deploy-angular.yml@main
+    with:
+      project_name: ${name}
+${basePathConfig}
+      environment: prod
+      
+    secrets:
+      LUMEN_REPO_TOKEN: \${{ secrets.LUMEN_TOKEN }}
+      DEPLOY_HOST: \${{ secrets.DEPLOY_HOST_PROD }}
+`;
+
+  const testDeployYml = `name: Deploy Test
+
+on:
+  push:
+    branches:
+      - develop
+    paths-ignore:
+      - 'README.md'
+      - '.gitignore'
+
+jobs:
+  test-deploy:
+    name: Deploy ${name}
+    permissions:
+      id-token: write
+      contents: read
+    uses: COACSanJose/lumen/.github/workflows/deploy-angular.yml@main
+    with:
+      project_name: ${name}
+${basePathConfig}
+      environment: test
+    secrets:
+      LUMEN_REPO_TOKEN: \${{ secrets.LUMEN_TOKEN }}
+      DEPLOY_HOST: \${{ secrets.DEPLOY_HOST_TEST }}
+`;
+
+  fs.writeFileSync(path.join(workflowsDir, 'deploy.yml'), deployYml, 'utf8');
+  fs.writeFileSync(path.join(workflowsDir, 'test-deploy.yml'), testDeployYml, 'utf8');
+}
+
 async function run() {
   const inputName = await getProjectName();
 
@@ -179,6 +270,7 @@ async function run() {
   }
 
   const name = inputName.toLowerCase().replace(/\s+/g, '-');
+  const basePath = await getBasePath();
 
   try {
     generateApp(name);
@@ -187,9 +279,16 @@ async function run() {
     updateTsConfigApp(name);
     updateAngularJson(name);
     updatePackageJson(name);
+    generateGithubWorkflows(name, basePath);
 
     console.log(`\nProject "${name}" created successfully.`);
-    console.log(`Run command: pnpm start:${name}\n`);
+    if (basePath) {
+      console.log(`Base path: ${basePath}`);
+    } else {
+      console.log(`Base path: /`);
+    }
+    console.log(`Run command: pnpm start:${name}`);
+    console.log();
   } catch (error) {
     console.error('Failed to create project:', error.message);
     process.exit(1);

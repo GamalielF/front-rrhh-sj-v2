@@ -34,7 +34,7 @@ export const roleGuard: CanActivateFn = (route: ActivatedRouteSnapshot) => {
     return authService.refreshAccessToken().pipe(
       map(() => checkRoles()),
       catchError(() => {
-        authService.logout();
+        authService.logout(true);
         return of(router.parseUrl(loginUrl));
       })
     );

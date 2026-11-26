@@ -29,7 +29,7 @@ export const authGuard: CanActivateFn = () => {
     return authService.refreshAccessToken().pipe(
       map(() => true),
       catchError(() => {
-        authService.logout();
+        authService.logout(true);
         return of(router.parseUrl(loginUrl));
       })
     );

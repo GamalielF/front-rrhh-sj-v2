@@ -36,7 +36,7 @@ export class AuditoriaService {
 
   private consultar<T>(ruta: string, params: Record<string, string | number>): Observable<T> {
     return this.api
-      .get<ApiResponse<T>>(`${env.rolesPagoApiUrl}admin/auditoria/${ruta}`, { params })
+      .get<ApiResponse<T>>(`${env.api.rolesPagoApiUrl}admin/auditoria/${ruta}`, { params })
       .pipe(map(({ content }) => content));
   }
 }

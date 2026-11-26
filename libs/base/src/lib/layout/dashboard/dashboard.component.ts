@@ -19,6 +19,7 @@ import {
   DropdownItem,
 } from '@lumen/ui';
 import { AuthService } from '@lumen/auth';
+import { LumenReauthModalComponent } from '../../features/reauth-modal';
 
 @Component({
   selector: 'lumen-dashboard',
@@ -28,6 +29,7 @@ import { AuthService } from '@lumen/auth';
     RouterOutlet,
     DashboardLayoutComponent,
     UserProfileMenuComponent,
+    LumenReauthModalComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './dashboard.component.html',
@@ -37,11 +39,15 @@ export class LumenDashboardComponent {
   protected router = inject(Router);
   protected authService = inject(AuthService);
 
-  @Input() logoSrc = 'img/logo-white.png';
-  @Input() logoCompactSrc = 'img/logo-compact-white.png';
+  @Input() logoSrc = 'assets/lumen/img/logo-white.png';
+  @Input() logoCompactSrc = 'assets/lumen/img/logo-compact-white.png';
   @Input() appTitle = '';
   @Input() showTitle = false;
   @Input() nameFormat: UserProfileNameFormat = 'first-last';
+  @Input() enableReauthModal = true;
+  @Input() systemTitle?: string;
+  @Input() systemDescription?: string;
+  @Input() reauthLogoSrc?: string;
 
   @Input() navItems: NavItem[] = [
     { label: 'Inicio', icon: '@tui.house', route: '/home' },
@@ -129,7 +135,8 @@ export class LumenDashboardComponent {
 
   logout(): void {
     this.logoutClick.emit();
-    this.authService.logout();
-    this.router.navigate(['/login']);
+    this.authService.logout().subscribe(() => {
+      this.router.navigate(['/login']);
+    });
   }
 }

@@ -20,8 +20,8 @@ import { NavItem } from './dashboard-layout.model';
   styleUrls: ['./dashboard-layout.component.css'],
 })
 export class DashboardLayoutComponent {
-  @Input() logoSrc = 'img/logo-white.png';
-  @Input() logoCompactSrc = 'img/logo-compact-white.png'
+  @Input() logoSrc = 'assets/lumen/img/logo-white.png';
+  @Input() logoCompactSrc = 'assets/lumen/img/logo-compact-white.png'
   @Input() appTitle = '';
   @Input() showTitle = false;
   @Input() navItems: NavItem[] = [];

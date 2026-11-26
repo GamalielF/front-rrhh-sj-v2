@@ -21,7 +21,7 @@ export class PerfilAplicacionService {
   }
 
   private cargar(): Observable<PerfilResponse | null> {
-    return this.api.get<ApiResponse<PerfilResponse>>(`${env.rolesPagoApiUrl}mi-perfil`).pipe(
+    return this.api.get<ApiResponse<PerfilResponse>>(`${env.api.rolesPagoApiUrl}mi-perfil`).pipe(
       map(({ content }) => content),
       catchError(() => {
         this.cache = null;

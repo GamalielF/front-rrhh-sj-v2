@@ -305,7 +305,28 @@ export class AuthService<TUser extends UserSession = UserSession> {
     return roles.some((role) => this.hasRole(role));
   }
 
-  logout(): void {
+  logout(skipServerCall = false): Observable<void> {
+    if (skipServerCall) {
+      this.clearSession();
+      return of(void 0);
+    }
+
+    const httpOptions = {
+      withCredentials: this.config.withCredentials,
+    };
+
+    return this.http.post<void>(this.config.logoutUrl, {}, httpOptions).pipe(
+      tap(() => {
+        this.clearSession();
+      }),
+      catchError(() => {
+        this.clearSession();
+        return of(void 0);
+      })
+    );
+  }
+
+  private clearSession(): void {
     this.memoryToken = null;
     this.memoryRefreshToken = null;
 

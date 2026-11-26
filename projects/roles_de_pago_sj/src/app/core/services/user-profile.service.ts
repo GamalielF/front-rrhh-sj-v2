@@ -21,7 +21,7 @@ export class UserProfileService implements UserProfileLoader<UserSession> {
       return of(null);
     }
 
-    const url = env.userProfileUrl;
+    const url = env.api.userProfileUrl;
 
     return this.api.get<UserProfileResponse>(url, {
       params: { codUsuario: context.username },
@@ -35,8 +35,8 @@ export class UserProfileService implements UserProfileLoader<UserSession> {
         const roles: string[] = Array.isArray(item.NOMBREROLES)
           ? item.NOMBREROLES
           : item.NOMBREROLES
-          ? [item.NOMBREROLES]
-          : [];
+            ? [item.NOMBREROLES]
+            : [];
 
         return {
           id: item.IDENTIFICACION || item.CODIGOUSUARIO || 'DEFAULT_ID',

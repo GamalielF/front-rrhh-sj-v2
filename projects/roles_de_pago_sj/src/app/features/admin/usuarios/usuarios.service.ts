@@ -16,18 +16,18 @@ export class UsuariosService {
       params['buscar'] = texto.trim();
     }
     return this.api
-      .get<ApiResponse<PaginaResponse<UsuarioAdminResponse>>>(`${env.rolesPagoApiUrl}admin/usuarios`, { params })
+      .get<ApiResponse<PaginaResponse<UsuarioAdminResponse>>>(`${env.api.rolesPagoApiUrl}admin/usuarios`, { params })
       .pipe(map(({ content }) => content));
   }
 
   privilegiados(): Observable<UsuarioAdminResponse[]> {
     return this.api
-      .get<ApiResponse<UsuarioAdminResponse[]>>(`${env.rolesPagoApiUrl}admin/usuarios/privilegiados`)
+      .get<ApiResponse<UsuarioAdminResponse[]>>(`${env.api.rolesPagoApiUrl}admin/usuarios/privilegiados`)
       .pipe(map(({ content }) => content));
   }
 
   aplicar(username: string, cambio: CambioRol): Observable<UsuarioAdminResponse> {
-    const ruta = `${env.rolesPagoApiUrl}admin/usuarios/${encodeURIComponent(username)}/roles/${cambio.rol}`;
+    const ruta = `${env.api.rolesPagoApiUrl}admin/usuarios/${encodeURIComponent(username)}/roles/${cambio.rol}`;
     return cambio.tipo === 'revocar' ? this.revocar(ruta) : this.otorgar(ruta, cambio.rol, cambio.verRolesAjenos);
   }
 

@@ -17,6 +17,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService, AUTH_CONFIG } from '@lumen/auth';
+import { LUMEN_BASE_CONFIG, DEFAULT_LUMEN_BASE_CONFIG } from '../../tokens';
 import {
   InputComponent,
   ButtonComponent,
@@ -48,12 +49,13 @@ export class LumenLoginComponent implements OnInit, OnDestroy {
   private authConfig = inject(AUTH_CONFIG, { optional: true });
   private router = inject(Router);
   private cdr = inject(ChangeDetectorRef);
+  private baseConfig = inject(LUMEN_BASE_CONFIG, { optional: true });
 
-  @Input() systemTitle = 'Portal Institucional';
-  @Input() systemDescription = 'Acceda con sus credenciales institucionales autorizadas.';
-  @Input() logoSrc = 'img/logo-blue.png';
+  @Input() systemTitle = this.baseConfig?.systemTitle ?? DEFAULT_LUMEN_BASE_CONFIG.systemTitle;
+  @Input() systemDescription = this.baseConfig?.systemDescription ?? DEFAULT_LUMEN_BASE_CONFIG.systemDescription;
+  @Input() logoSrc = this.baseConfig?.logoSrc ?? DEFAULT_LUMEN_BASE_CONFIG.logoSrc;
   @Input() redirectUrl?: string;
-  @Input() backgroundImage = '/img/sanjose-bg.jpg';
+  @Input() backgroundImage = this.baseConfig?.backgroundImage ?? DEFAULT_LUMEN_BASE_CONFIG.backgroundImage;
   @Input() enableTotp = true;
 
   get targetRedirectUrl(): string {
@@ -87,7 +89,7 @@ export class LumenLoginComponent implements OnInit, OnDestroy {
   errorMessage = '';
 
   ngOnInit(): void {
-    this.authService.logout();
+    this.authService.logout(true).subscribe();
     this.totpForm.valueChanges.subscribe(() => {
       if (this.errorMessage) {
         this.errorMessage = '';

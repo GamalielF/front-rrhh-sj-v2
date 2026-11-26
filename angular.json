@@ -136,7 +136,7 @@
               {
                 "glob": "**/*",
                 "input": "libs/base/src/assets",
-                "output": ""
+                "output": "assets/lumen"
               }
             ],
             "styles": [
@@ -185,7 +185,11 @@
               "buildTarget": "roles_de_pago_sj:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "projects/roles_de_pago_sj/proxy.conf.json",
+            "port": 4200
+          }
         },
         "test": {
           "builder": "@angular/build:unit-test"

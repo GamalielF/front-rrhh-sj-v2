@@ -49,8 +49,9 @@ export class DashboardShellComponent {
       icon: '@tui.log-out',
       variant: 'danger',
       onClick: () => {
-        this.authService.logout();
-        this.router.navigate(['/login']);
+        this.authService.logout().subscribe(() => {
+          this.router.navigate(['/login']);
+        });
       },
     },
   ];

@@ -11,13 +11,13 @@ export class MiRolPagoService {
 
   periodos(): Observable<string[]> {
     return this.api
-      .get<ApiResponse<string[]>>(`${env.rolesPagoApiUrl}mi-rol-pago/periodos`)
+      .get<ApiResponse<string[]>>(`${env.api.rolesPagoApiUrl}mi-rol-pago/periodos`)
       .pipe(map(({ content }) => content));
   }
 
   consultar(solicitud: ConsultaRolPagoRequest): Observable<RolPagoPdfResponse> {
     return this.api
-      .post<ApiResponse<RolPagoPdfResponse>>(`${env.rolesPagoApiUrl}mi-rol-pago/consultar`, solicitud)
+      .post<ApiResponse<RolPagoPdfResponse>>(`${env.api.rolesPagoApiUrl}mi-rol-pago/consultar`, solicitud)
       .pipe(map(({ content }) => content));
   }
 }

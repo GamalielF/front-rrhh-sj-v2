@@ -40,6 +40,6 @@ export class NotificacionesService {
   }
 
   private ruta(periodo: string): string {
-    return `${env.rolesPagoApiUrl}rrhh/periodos/${periodo}/notificaciones`;
+    return `${env.api.rolesPagoApiUrl}rrhh/periodos/${periodo}/notificaciones`;
   }
 }

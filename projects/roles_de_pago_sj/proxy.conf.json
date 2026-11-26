@@ -1,0 +1,16 @@
+{
+  "/authenticator": {
+    "target": "https://pre-prod.coopsanjose.fin.ec",
+    "secure": false,
+    "changeOrigin": true,
+    "cookieDomainRewrite": "",
+    "headers": { "origin": "https://pre-prod.coopsanjose.fin.ec" }
+  },
+  "/api-ad": {
+    "target": "https://proxy.coopsanjose.fin.ec:8443",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": { "^/api-ad": "/api/v1/analitics" },
+    "headers": { "origin": "https://pre-prod.coopsanjose.fin.ec" }
+  }
+}

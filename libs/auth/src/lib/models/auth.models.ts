@@ -27,10 +27,12 @@ export interface LoginResponse<TUser extends UserSession = UserSession> {
 
 export type TokenStorageType = 'localStorage' | 'sessionStorage' | 'memory' | 'cookie';
 export type RefreshMode = 'cookie' | 'body';
+export type ReauthMode = 'modal' | 'redirect';
 
 export interface AuthConfig {
   loginUrl: string;
   mfaVerifyUrl: string;
+  logoutUrl?: string;
   tokenName?: string;
   usernameClaim?: string | string[];
   defaultRedirectUrl?: string;
@@ -43,6 +45,7 @@ export interface AuthConfig {
   tokenStorage?: TokenStorageType;
   persistUserInStorage?: boolean;
   enableDebugMode?: boolean;
+  reauthMode?: ReauthMode;
 }
 
 export interface UserProfileLoader<TUser extends UserSession = UserSession> {

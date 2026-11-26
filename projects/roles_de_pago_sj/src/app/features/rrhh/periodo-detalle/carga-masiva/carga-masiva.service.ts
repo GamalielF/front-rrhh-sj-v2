@@ -29,7 +29,7 @@ export class CargaMasivaService {
       formulario.append('motivo', opciones.motivo);
     }
     return this.api
-      .post<ApiResponse<ResultadoCargaResponse>>(`${env.rolesPagoApiUrl}rrhh/periodos/${periodo}/roles-pago`, formulario)
+      .post<ApiResponse<ResultadoCargaResponse>>(`${env.api.rolesPagoApiUrl}rrhh/periodos/${periodo}/roles-pago`, formulario)
       .pipe(map(({ content }) => content));
   }
 }

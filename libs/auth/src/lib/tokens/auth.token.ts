@@ -9,6 +9,7 @@ export const DEFAULT_AUTH_CONFIG: Required<AuthConfig> = {
   usernameClaim: 'sub',
   defaultRedirectUrl: '/',
   loginRedirectUrl: '/login',
+  logoutUrl: '/api/v1/auth/logout',
   forbiddenRedirectUrl: '/forbidden',
   refreshUrl: '/api/v1/auth/refresh',
   enableRefreshToken: false,
@@ -17,6 +18,7 @@ export const DEFAULT_AUTH_CONFIG: Required<AuthConfig> = {
   tokenStorage: 'localStorage',
   persistUserInStorage: false,
   enableDebugMode: false,
+  reauthMode: 'modal',
 };
 
 export const AUTH_CONFIG = new InjectionToken<AuthConfig>('AUTH_CONFIG');

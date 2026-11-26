@@ -57,10 +57,10 @@ export class RrhhService {
   }
 
   private enviar<T>(ruta: string, cuerpo: unknown): Observable<T> {
-    return this.api.post<ApiResponse<T>>(`${env.rolesPagoApiUrl}${ruta}`, cuerpo).pipe(map(({ content }) => content));
+    return this.api.post<ApiResponse<T>>(`${env.api.rolesPagoApiUrl}${ruta}`, cuerpo).pipe(map(({ content }) => content));
   }
 
   private obtener<T>(ruta: string): Observable<T> {
-    return this.api.get<ApiResponse<T>>(`${env.rolesPagoApiUrl}${ruta}`).pipe(map(({ content }) => content));
+    return this.api.get<ApiResponse<T>>(`${env.api.rolesPagoApiUrl}${ruta}`).pipe(map(({ content }) => content));
   }
 }

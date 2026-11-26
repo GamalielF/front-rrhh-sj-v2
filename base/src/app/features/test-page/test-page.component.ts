@@ -19,13 +19,8 @@ import {
   FormComponent,
   FormValidators,
 } from '@lumen/ui';
-
-interface TestRow {
-  id: string;
-  name: string;
-  category?: string;
-  status?: string;
-}
+import { TestRow, DEMO_DATA, DEMO_DATA_TABLE_ROWS } from './test-page.model';
+import { DebugSectionComponent } from './components/debug-section';
 
 @Component({
   selector: 'app-test-page',
@@ -44,6 +39,7 @@ interface TestRow {
     GridComponent,
     GridItemComponent,
     FormComponent,
+    DebugSectionComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './test-page.component.html',
@@ -57,34 +53,18 @@ export class TestPageComponent {
     monto: [100, [Validators.required, FormValidators.range(10, 1000)]],
   });
 
-  // Tabla sin paginación
-  readonly demoData: TestRow[] = [
-    { id: '#001', name: 'A' },
-    { id: '#002', name: 'B' },
-  ];
+  readonly demoData: TestRow[] = DEMO_DATA;
 
   readonly columns: TableColumn<TestRow>[] = [
     { key: 'id', title: 'Código', type: 'text' },
     { key: 'name', title: 'Nombre', type: 'text' },
   ];
 
-  // Tabla con paginación y más
   page = 0;
   pageSize = 5;
   activeQueryParams: Record<string, any> = {};
 
-  readonly dataTableRows: TestRow[] = [
-    { id: '#001', name: 'A', category: 'Cat 1', status: 'Activo' },
-    { id: '#002', name: 'B', category: 'Cat 2', status: 'Pendiente' },
-    { id: '#003', name: 'C', category: 'Cat 1', status: 'Activo' },
-    { id: '#004', name: 'D', category: 'Cat 3', status: 'Inactivo' },
-    { id: '#005', name: 'E', category: 'Cat 2', status: 'Activo' },
-    { id: '#006', name: 'F', category: 'Cat 1', status: 'Pendiente' },
-    { id: '#007', name: 'G', category: 'Cat 3', status: 'Activo' },
-    { id: '#008', name: 'H', category: 'Cat 2', status: 'Inactivo' },
-    { id: '#009', name: 'I', category: 'Cat 1', status: 'Activo' },
-    { id: '#010', name: 'J', category: 'Cat 2', status: 'Pendiente' },
-  ];
+  readonly dataTableRows: TestRow[] = DEMO_DATA_TABLE_ROWS;
 
   readonly dataTableColumns: DataTableColumn<TestRow>[] = [
     {
