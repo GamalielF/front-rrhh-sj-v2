@@ -19,7 +19,6 @@ export const DEFAULT_AUTH_CONFIG: Required<AuthConfig> = {
   persistUserInStorage: false,
   enableDebugMode: false,
   reauthMode: 'modal',
-  refreshOnStartup: true,
 };
 
 export const AUTH_CONFIG = new InjectionToken<AuthConfig>('AUTH_CONFIG');

@@ -1,11 +1,11 @@
 [data-theme='refined'] {
-  /* Radios */
+  /* Radii */
   --radius-md: 0.625rem;
   --radius-lg: 0.875rem;
   --radius-xl: 1.125rem;
   --radius-2xl: 1.5rem;
 
-  /* Superficies */
+  /* Surfaces */
   --lumen-shell: #eef2f7;
   --lumen-canvas: #f5f7fb;
   --lumen-surface: #ffffff;
@@ -21,13 +21,13 @@
   --lumen-on-chrome: #ffffff;
   --lumen-on-primary: #ffffff;
 
-  /* Líneas */
+  /* Lines */
   --lumen-line-subtle: #e9eff7;
   --lumen-line: #dce4f0;
   --lumen-line-strong: #c4d0e2;
   --lumen-line-stronger: #94a3b8;
 
-  /* Tipografía */
+  /* Typography */
   --lumen-ink: #0f172a;
   --lumen-ink-2: #1e293b;
   --lumen-ink-3: #334155;
@@ -36,7 +36,7 @@
   --lumen-subtle: #64748b;
   --lumen-faint: #94a3b8;
 
-  /* Primario */
+  /* Primary */
   --lumen-primary-soft: #e8f0fe;
   --lumen-primary-soft-hover: #d3e3fd;
   --lumen-primary-soft-border: #aecbfa;
@@ -47,14 +47,14 @@
   --lumen-primary-active: #062e6e;
   --lumen-primary-deep: #041e4a;
 
-  /* Marca */
+  /* Brand */
   --lumen-navy-200: #0b57d0;
   --lumen-navy-300: #0842a0;
   --lumen-navy-700: #0a2540;
 
-  --lumen-sanjose-green: #1b7a3d;
-  --lumen-sanjose-green-hover: #145c30;
-  --lumen-sanjose-green-active: #0f4423;
+  --lumen-brand: #1b7a3d;
+  --lumen-brand-hover: #145c30;
+  --lumen-brand-active: #0f4423;
 
   /* Info */
   --lumen-info-soft: #e0f2f1;
@@ -95,14 +95,14 @@
   --lumen-danger-hover: #a50e0e;
   --lumen-danger-active: #8c0505;
 
-  /* Secundario */
+  /* Secondary */
   --lumen-secondary-soft: #f3e8fd;
   --lumen-secondary-soft-hover: #e9d5f9;
   --lumen-secondary-soft-border: #d8b4f0;
   --lumen-secondary-ink: #6b21a8;
   --lumen-secondary: #6d28d9;
 
-  /* Elevaciones */
+  /* Elevations */
   --lumen-refined-elevation-1: 0 1px 3px rgba(10, 37, 64, 0.06), 0 1px 2px rgba(10, 37, 64, 0.04);
   --lumen-refined-elevation-2: 0 8px 24px -4px rgba(10, 37, 64, 0.09), 0 2px 8px -2px rgba(10, 37, 64, 0.05);
   --lumen-refined-elevation-3: 0 20px 44px -10px rgba(10, 37, 64, 0.16), 0 8px 18px -6px rgba(10, 37, 64, 0.08);
@@ -208,7 +208,7 @@
   border: 1px solid var(--lumen-primary-soft-border);
 }
 
-/* Cards y KPI */
+/* Cards and KPI */
 [data-theme='refined'] ui-card > div:first-child {
   border-radius: var(--radius-xl);
   border-color: var(--lumen-line);
@@ -254,7 +254,7 @@
   font-weight: 700;
 }
 
-/* Botones */
+/* Buttons */
 [data-theme='refined'] ui-button button {
   border-radius: 0.75rem;
   font-weight: 500;
@@ -269,7 +269,7 @@
   transform: scale(0.985);
 }
 
-/* Breadcrumb, badges y paginación */
+/* Breadcrumb, badges and pagination */
 [data-theme='refined'] ui-breadcrumb nav {
   display: inline-flex;
   padding: 0.375rem 0.875rem;
@@ -291,7 +291,7 @@
   box-shadow: 0 2px 8px -2px rgba(11, 87, 208, 0.45);
 }
 
-/* Tablas */
+/* Tables */
 [data-theme='refined'] ui-table thead tr,
 [data-theme='refined'] ui-data-table thead tr {
   background: var(--lumen-surface-2);
@@ -319,7 +319,7 @@
   border-color: var(--lumen-line-subtle);
 }
 
-/* Inputs y formularios */
+/* Inputs and forms */
 [data-theme='refined'] ui-input label,
 [data-theme='refined'] ui-form-field label {
   font-weight: 600;
@@ -337,7 +337,7 @@
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--lumen-primary) 20%, transparent);
 }
 
-/* Modales y menús */
+/* Modals and menus */
 [data-theme='refined'] ui-modal [role='dialog'] > div {
   border-radius: var(--radius-2xl);
   box-shadow: var(--lumen-refined-elevation-3);

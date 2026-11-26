@@ -8,12 +8,12 @@ export function indicadoresDe(
   informe: InformeNotificacionesResponse | null,
 ): Indicador[] {
   const indicadores: Indicador[] = [
-    { etiqueta: 'Roles cargados', valor: resumen.rolesActivos, icono: '@tui.file-text', acento: 'blue' },
+    { etiqueta: 'Roles cargados', valor: resumen.rolesActivos, icono: '@tui.file-text', acento: 'primary' },
     {
       etiqueta: 'Personas sin rol',
       valor: resumen.sinRol,
       icono: '@tui.triangle-alert',
-      acento: resumen.sinRol > 0 ? 'warning' : 'green',
+      acento: resumen.sinRol > 0 ? 'warning' : 'primary',
     },
   ];
   if (cobertura) {
@@ -21,7 +21,7 @@ export function indicadoresDe(
       etiqueta: 'Ya abrieron su rol',
       valor: `${cobertura.leidos} (${porcentajeLeido(cobertura.leidos, cobertura.rolesPublicados)}%)`,
       icono: '@tui.eye',
-      acento: 'green',
+      acento: 'primary',
     });
   }
   if (informe?.habilitadas) {
@@ -29,7 +29,7 @@ export function indicadoresDe(
       etiqueta: 'Avisos fallidos',
       valor: informe.fallidas,
       icono: '@tui.send',
-      acento: informe.fallidas > 0 ? 'danger' : 'green',
+      acento: informe.fallidas > 0 ? 'danger' : 'primary',
     });
   }
   return indicadores;

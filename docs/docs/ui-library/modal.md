@@ -98,7 +98,7 @@ export class ExampleComponent {
       [subtitle]="'Esta acción no se puede deshacer'"
       [showClose]="true"
       (close)="closeDeleteModal()">
-      <p class="text-gray-600">
+      <p class="text-ink-4">
         ¿Está seguro de que desea eliminar este elemento?
       </p>
 
@@ -238,7 +238,7 @@ export class FormModalComponent {
       <div class="space-y-6">
         <div>
           <h3 class="font-semibold mb-2">Descripción</h3>
-          <p class="text-gray-600">{{ project.description }}</p>
+          <p class="text-ink-4">{{ project.description }}</p>
         </div>
 
         <div>
@@ -257,7 +257,7 @@ export class FormModalComponent {
             <div class="bg-blue-600 h-2 rounded-full"
                  [style.width.%]="project.progress"></div>
           </div>
-          <p class="text-sm text-gray-600 mt-1">{{ project.progress }}% completado</p>
+          <p class="text-sm text-ink-4 mt-1">{{ project.progress }}% completado</p>
         </div>
       </div>
 
@@ -400,7 +400,7 @@ export class NoBackdropModalComponent {
       [title]="'¿Está seguro?'"
       size="sm"
       (close)="closeConfirmModal()">
-      <p class="text-gray-600">
+      <p class="text-ink-4">
         Esta acción eliminará permanentemente su cuenta.
       </p>
 

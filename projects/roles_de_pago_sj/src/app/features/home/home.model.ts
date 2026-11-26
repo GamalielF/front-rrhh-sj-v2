@@ -18,7 +18,7 @@ export interface Indicador {
   etiqueta: string;
   valor: string | number;
   icono: string;
-  acento: 'blue' | 'green' | 'warning' | 'danger' | 'info';
+  acento: 'primary' | 'warning' | 'danger' | 'info';
 }
 
 export const DIAS_SIN_SINCRONIZAR = 7;

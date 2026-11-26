@@ -12,7 +12,4 @@ export type KpiColor =
   | 'danger'
   | 'info'
   | 'secondary'
-  | 'neutral'
-  | 'blue'
-  | 'green'
-  | 'purple';
+  | 'neutral';

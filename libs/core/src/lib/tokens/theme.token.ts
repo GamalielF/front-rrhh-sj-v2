@@ -5,13 +5,13 @@ import { ThemeService } from '../services/theme.service';
 export const DEFAULT_LUMEN_THEMES: readonly ThemeDefinition[] = [
   {
     id: 'default',
-    name: 'Clásico',
-    description: 'Tema corporativo clásico por defecto',
+    name: 'Legacy',
+    description: 'Initial theme',
   },
   {
     id: 'refined',
-    name: 'Refined Material',
-    description: 'Tema moderno Material UI con superficies tonales y formas corporativas',
+    name: 'Refined',
+    description: 'Refined modern theme',
   },
 ];
 

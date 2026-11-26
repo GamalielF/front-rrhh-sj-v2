@@ -47,7 +47,7 @@ export class LinkComponent {
         return 'text-muted hover:text-ink-3';
       case 'brand':
       default:
-        return 'text-sanjose-blue hover:text-navy-500';
+        return 'text-navy-200 hover:text-navy-500';
     }
   }
 

@@ -25,14 +25,9 @@ export const authGuard: CanActivateFn = () => {
     return true;
   }
 
-  // Sin token guardado y con refreshOnStartup=false, se pide iniciar sesión (no se entra con una sesión anterior)
-  const refreshOnStartup = config?.refreshOnStartup ?? DEFAULT_AUTH_CONFIG.refreshOnStartup;
-  const hadToken = !!authService.getToken();
-
-  if (authService.canRefresh() && (hadToken || refreshOnStartup)) {
+  if (authService.canRefresh()) {
     return authService.refreshAccessToken().pipe(
-      // Solo se entra si de verdad quedó una sesión válida
-      map(() => (authService.isAuthenticated() ? true : router.parseUrl(loginUrl))),
+      map(() => true),
       catchError(() => {
         authService.logout(true);
         return of(router.parseUrl(loginUrl));

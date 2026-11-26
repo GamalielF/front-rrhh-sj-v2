@@ -47,7 +47,7 @@ export class UserProfileMenuComponent {
   @Input() nameFormat: UserProfileNameFormat = 'first-last';
   @Input() placement: DropdownPlacement = 'bottom-end';
   @Input() closeOnClick = true;
-  @Input() avatarBgColor = 'bg-sanjose-blue';
+  @Input() avatarBgColor = 'bg-navy-200';
   @Input() ariaLabel = 'Menú de usuario';
 
   @Output() itemClick = new EventEmitter<DropdownItem>();

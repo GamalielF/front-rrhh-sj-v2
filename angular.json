@@ -142,6 +142,7 @@
             "styles": [
               "node_modules/@taiga-ui/styles/taiga-ui-theme.less",
               "projects/roles_de_pago_sj/src/styles.css",
+              "projects/roles_de_pago_sj/src/themes.css",
               "libs/ui/src/styles.css"
             ],
             "stylePreprocessorOptions": {

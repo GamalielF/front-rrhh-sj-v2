@@ -37,7 +37,7 @@ export const USER_PROFILE_ITEM_DISABLED_CLASS = 'text-subtle cursor-not-allowed 
 
 export const USER_PROFILE_ITEM_VARIANTS: Record<DropdownItemVariant, string> = {
   danger: 'text-danger hover:bg-danger-soft hover:text-danger-hover active:bg-danger-soft-hover',
-  brand: 'text-sanjose-blue hover:bg-primary-soft hover:text-navy-400 active:bg-primary-soft-hover',
+  brand: 'text-navy-200 hover:bg-primary-soft hover:text-navy-400 active:bg-primary-soft-hover',
   primary: 'text-primary hover:bg-primary-soft hover:text-primary-hover active:bg-primary-soft-hover',
   warning: 'text-warning hover:bg-warning-soft hover:text-warning-hover active:bg-warning-soft-hover',
   info: 'text-info hover:bg-info-soft hover:text-info-hover active:bg-info-soft-hover',
@@ -46,7 +46,7 @@ export const USER_PROFILE_ITEM_VARIANTS: Record<DropdownItemVariant, string> = {
 
 export const USER_PROFILE_ITEM_ICON_VARIANTS: Record<DropdownItemVariant, string> = {
   danger: 'text-danger-strong',
-  brand: 'text-sanjose-blue',
+  brand: 'text-navy-200',
   primary: 'text-primary',
   warning: 'text-warning-strong',
   info: 'text-info-strong',

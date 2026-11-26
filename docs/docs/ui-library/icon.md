@@ -103,7 +103,7 @@ export class IconSizesComponent {}
     <ui-icon
       icon="@tui.settings"
       size="md"
-      extraClass="text-gray-400 hover:text-gray-600">
+      extraClass="text-gray-400 hover:text-ink-4">
     </ui-icon>
   `
 })
@@ -322,7 +322,7 @@ export class StatusIconComponent {
       case 'error': return 'text-red-500';
       case 'warning': return 'text-amber-500';
       case 'info': return 'text-blue-500';
-      default: return 'text-gray-500';
+      default: return 'text-muted';
     }
   }
 

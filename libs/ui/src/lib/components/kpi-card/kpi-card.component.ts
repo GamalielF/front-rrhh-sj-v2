@@ -9,16 +9,13 @@ import { KpiColor, KpiTrend } from './kpi-card.model';
 
 const ICON_BG_CLASSES: Record<KpiColor, string> = {
   primary:   'bg-primary-soft text-primary border border-primary-soft-hover',
-  brand:     'bg-primary-soft text-sanjose-blue border border-primary-soft-border',
+  brand:     'bg-primary-soft text-navy-200 border border-primary-soft-border',
   success:   'bg-success-soft text-success border border-success-soft-hover',
   warning:   'bg-warning-soft text-warning border border-warning-soft-hover',
   danger:    'bg-danger-soft text-danger border border-danger-soft-hover',
   info:      'bg-info-soft text-info border border-info-soft-hover',
   secondary: 'bg-secondary-soft text-secondary border border-secondary-soft-hover',
   neutral:   'bg-surface-2 text-ink-3 border border-line',
-  blue:      'bg-primary-soft text-primary border border-primary-soft-hover',
-  green:     'bg-success-soft text-success border border-success-soft-hover',
-  purple:    'bg-secondary-soft text-secondary border border-secondary-soft-hover',
 };
 
 @Component({
@@ -35,9 +32,9 @@ export class KpiCardComponent {
   @Input() icon = '';
   @Input() trend?: KpiTrend;
   @Input() description = '';
-  @Input() accentColor: KpiColor = 'blue';
+  @Input() accentColor: KpiColor = 'primary';
 
   get iconContainerClass(): string {
-    return ICON_BG_CLASSES[this.accentColor] || ICON_BG_CLASSES['blue'];
+    return ICON_BG_CLASSES[this.accentColor] || ICON_BG_CLASSES['primary'];
   }
 }

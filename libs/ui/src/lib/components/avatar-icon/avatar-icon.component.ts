@@ -16,7 +16,7 @@ export class AvatarIconComponent {
   @Input() user: UserProfileData | null = null;
   @Input() fullName: string | null = null;
   @Input() iconUrl: string | null | undefined = null;
-  @Input() bgColor = 'bg-sanjose-blue';
+  @Input() bgColor = 'bg-navy-200';
 
   get displayName(): string {
     if (!this.user && !this.fullName) return 'Usuario';

@@ -21,18 +21,15 @@
   <rect width="600" height="900" fill="url(#cw-bg)"/>
   <rect width="600" height="900" fill="url(#cw-grid)"/>
 
-  <!-- Layered corporate waves -->
   <path d="M-40 180 C 120 90, 290 260, 480 150 C 560 105, 620 130, 640 160 L 640 -20 L -40 -20 Z" fill="url(#cw-wave-1)"/>
   <path d="M-40 620 C 110 510, 260 680, 430 570 C 530 505, 600 540, 640 580 L 640 920 L -40 920 Z" fill="url(#cw-wave-2)"/>
   <path d="M-40 720 C 140 630, 310 780, 500 680 C 570 645, 615 660, 640 690 L 640 920 L -40 920 Z" fill="#ffffff" fill-opacity="0.04"/>
 
-  <!-- Material geometric rings -->
   <circle cx="490" cy="140" r="140" stroke="#ffffff" stroke-opacity="0.10" stroke-width="1.2"/>
   <circle cx="490" cy="140" r="95" stroke="#8ab4f8" stroke-opacity="0.18" stroke-width="1"/>
   <circle cx="90" cy="760" r="170" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1.2"/>
   <circle cx="90" cy="760" r="115" stroke="#4ca42f" stroke-opacity="0.22" stroke-width="1.2"/>
 
-  <!-- Subtle architectural diagonal lines -->
   <path d="M0 320 L 600 120" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
   <path d="M0 440 L 600 240" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1"/>
   <circle cx="410" cy="290" r="4" fill="#8ab4f8" fill-opacity="0.35"/>

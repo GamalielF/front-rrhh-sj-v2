@@ -7,7 +7,7 @@ export const TRIGGER_VARIANTS: Record<DropdownTriggerVariant, string> = {
   ghost: 'bg-transparent text-muted hover:text-ink-2 hover:bg-surface-2 active:bg-surface-3',
   secondary: 'bg-surface text-ink-3 border border-line hover:bg-canvas active:bg-surface-2 shadow-xs',
   primary: 'bg-primary text-white hover:bg-primary-hover active:bg-primary-active shadow-xs',
-  brand: 'bg-sanjose-blue text-white hover:bg-navy-400 active:bg-navy-800 shadow-xs',
+  brand: 'bg-navy-200 text-white hover:bg-navy-400 active:bg-navy-800 shadow-xs',
   outline: 'bg-transparent text-ink-3 border border-line-strong hover:bg-canvas active:bg-surface-2',
 };
 

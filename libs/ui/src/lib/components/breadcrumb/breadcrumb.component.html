@@ -8,7 +8,7 @@
       <a
         *ngIf="homeRoute"
         [routerLink]="homeRoute"
-        class="inline-flex items-center text-subtle hover:text-sanjose-blue transition-colors duration-150 p-1 rounded hover:bg-surface-2"
+        class="inline-flex items-center text-subtle hover:text-navy-200 transition-colors duration-150 p-1 rounded hover:bg-surface-2"
         aria-label="Inicio"
       >
         <ui-icon [icon]="homeIcon" size="xs" />
@@ -25,7 +25,7 @@
           *ngIf="item.routerLink"
           [routerLink]="item.routerLink"
           (click)="onItemClick(item, $event)"
-          class="inline-flex items-center gap-1.5 text-muted hover:text-sanjose-blue transition-colors duration-150 truncate hover:underline underline-offset-2"
+          class="inline-flex items-center gap-1.5 text-muted hover:text-navy-200 transition-colors duration-150 truncate hover:underline underline-offset-2"
         >
           <ui-icon *ngIf="item.icon" [icon]="item.icon" size="xs" class="flex-shrink-0" />
           <span class="truncate text-sm">{{ item.label }}</span>
@@ -35,7 +35,7 @@
           *ngIf="!item.routerLink && item.url"
           [href]="item.url"
           (click)="onItemClick(item, $event)"
-          class="inline-flex items-center gap-1.5 text-muted hover:text-sanjose-blue transition-colors duration-150 truncate hover:underline underline-offset-2"
+          class="inline-flex items-center gap-1.5 text-muted hover:text-navy-200 transition-colors duration-150 truncate hover:underline underline-offset-2"
         >
           <ui-icon *ngIf="item.icon" [icon]="item.icon" size="xs" class="flex-shrink-0" />
           <span class="truncate text-sm">{{ item.label }}</span>
@@ -45,7 +45,7 @@
           *ngIf="!item.routerLink && !item.url"
           type="button"
           (click)="onItemClick(item, $event)"
-          class="inline-flex items-center gap-1.5 text-muted hover:text-sanjose-blue transition-colors duration-150 truncate cursor-pointer hover:underline underline-offset-2 bg-transparent border-0 p-0 font-inherit text-inherit"
+          class="inline-flex items-center gap-1.5 text-muted hover:text-navy-200 transition-colors duration-150 truncate cursor-pointer hover:underline underline-offset-2 bg-transparent border-0 p-0 font-inherit text-inherit"
         >
           <ui-icon *ngIf="item.icon" [icon]="item.icon" size="xs" class="flex-shrink-0" />
           <span class="truncate text-sm">{{ item.label }}</span>
@@ -59,7 +59,7 @@
           class="inline-flex items-center gap-1.5 text-ink-2 font-semibold truncate"
           aria-current="page"
         >
-          <ui-icon *ngIf="item.icon" [icon]="item.icon" size="xs" class="text-sanjose-blue flex-shrink-0" />
+          <ui-icon *ngIf="item.icon" [icon]="item.icon" size="xs" class="text-navy-200 flex-shrink-0" />
           <span class="truncate text-sm">{{ item.label }}</span>
         </span>
       </ng-template>

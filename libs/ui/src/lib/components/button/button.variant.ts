@@ -13,9 +13,8 @@ export const BASE = [
 
 export const VARIANT_CLASSES: Record<ButtonVariant, string> = {
   primary:    'bg-primary text-on-primary border-primary shadow-xs hover:bg-primary-hover hover:border-primary-hover active:bg-primary-active',
-  brand:      'bg-sanjose-green text-on-primary border-sanjose-green shadow-xs hover:bg-sanjose-green-hover hover:border-sanjose-green-hover active:bg-sanjose-green-active',
-  'brand-blue': 'bg-sanjose-blue text-on-primary border-sanjose-blue shadow-xs hover:bg-sanjose-blue-hover hover:border-sanjose-blue-hover active:bg-navy-700',
-  secondary:  'bg-surface text-ink-2 border-line-strong shadow-xs hover:bg-canvas hover:border-line-stronger hover:text-ink active:bg-surface-2',
+  brand:        'bg-brand text-on-primary border-brand shadow-xs hover:bg-brand-hover hover:border-brand-hover active:bg-brand-active',
+  secondary:    'bg-surface text-ink-2 border-line-strong shadow-xs hover:bg-canvas hover:border-line-stronger hover:text-ink active:bg-surface-2',
   outline:    'bg-transparent text-primary border-primary/60 hover:bg-primary/10 active:bg-primary/20',
   ghost:      'bg-transparent text-ink-3 border-transparent hover:bg-surface-2 hover:text-ink active:bg-surface-3',
   light:      'bg-surface-2 text-ink-2 border-transparent hover:bg-surface-3 active:bg-surface-4',

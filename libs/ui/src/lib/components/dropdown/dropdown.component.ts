@@ -101,7 +101,7 @@ export class DropdownComponent {
       case 'danger':
         return 'text-danger hover:bg-danger-soft hover:text-danger-hover active:bg-danger-soft-hover';
       case 'brand':
-        return 'text-sanjose-blue hover:bg-primary-soft hover:text-navy-400 active:bg-primary-soft-hover';
+        return 'text-navy-200 hover:bg-primary-soft hover:text-navy-400 active:bg-primary-soft-hover';
       case 'primary':
         return 'text-primary hover:bg-primary-soft hover:text-primary-hover active:bg-primary-soft-hover';
       case 'warning':
@@ -120,7 +120,7 @@ export class DropdownComponent {
       case 'danger':
         return 'text-danger-strong';
       case 'brand':
-        return 'text-sanjose-blue';
+        return 'text-navy-200';
       case 'primary':
         return 'text-primary';
       case 'warning':

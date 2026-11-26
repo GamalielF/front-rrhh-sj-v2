@@ -213,7 +213,7 @@ export class PinInputComponent
 
     const baseBorder = isErr
       ? 'border-danger-focus text-danger-hover bg-danger-soft/40 focus:border-danger-strong focus:ring-1 focus:ring-danger-strong'
-      : 'border-line-strong text-ink bg-surface hover:border-line-stronger focus:border-sanjose-blue focus:ring-1 focus:ring-sanjose-blue';
+      : 'border-line-strong text-ink bg-surface hover:border-line-stronger focus:border-navy-200 focus:ring-1 focus:ring-navy-200';
 
     return `${this.cellDimensionClasses} ${baseBorder}`;
   }

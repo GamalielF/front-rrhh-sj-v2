@@ -25,7 +25,7 @@ const DOT_CLASSES: Record<BadgeVariant, string> = {
   danger:    'bg-danger',
   success:   'bg-success',
   neutral:   'bg-surface-5',
-  brand:     'bg-sanjose-green',
+  brand:     'bg-brand',
 };
 
 const SIZE_CLASSES: Record<BadgeSize, string> = {

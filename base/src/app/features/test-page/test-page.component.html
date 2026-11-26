@@ -1,31 +1,12 @@
-<ui-page-container
-  title="Test"
-  description="aaaaa"
-  icon="@tui.info"
->
+<ui-page-container title="Test" description="aaaaa" icon="@tui.info">
   <div slot="actions" class="flex items-center gap-3 flex-wrap">
-    <ui-link
-      routerLink="/test/detalle"
-      icon="@tui.arrow-right"
-      iconPosition="left"
-      size="sm"
-    >
+    <ui-link routerLink="/test/detalle" icon="@tui.arrow-right" iconPosition="left" size="sm">
       Ir a hola 1
     </ui-link>
-    <ui-button
-      variant="secondary"
-      size="sm"
-      icon="@tui.rotate-ccw"
-      (onClick)="onSecondaryAction()"
-    >
+    <ui-button variant="secondary" size="sm" icon="@tui.rotate-ccw" (onClick)="onSecondaryAction()">
       Second
     </ui-button>
-    <ui-button
-      variant="brand"
-      size="sm"
-      icon="@tui.plus"
-      (onClick)="onPrimaryAction()"
-    >
+    <ui-button variant="brand" size="sm" icon="@tui.plus" (onClick)="onPrimaryAction()">
       First
     </ui-button>
   </div>
@@ -34,21 +15,10 @@
     <ui-grid-item [flex]="true" gap="md">
       <ui-card title="Form">
         <ui-form [formGroup]="testForm" (formSubmit)="onPrimaryAction()" customClass="flex flex-col gap-4">
-          <ui-input
-            type="text"
-            label="Cédula"
-            formControlName="cedula"
-            placeholder="10 dígitos"
-            prefixIcon="@tui.credit-card"
-          />
+          <ui-input type="text" label="Cédula" formControlName="cedula" placeholder="10 dígitos"
+            prefixIcon="@tui.credit-card" />
 
-          <ui-input
-            type="number"
-            label="Monto"
-            formControlName="monto"
-            placeholder="0"
-            prefixIcon="@tui.dollar-sign"
-          />
+          <ui-input type="number" label="Monto" formControlName="monto" placeholder="0" prefixIcon="@tui.dollar-sign" />
 
           <div class="flex items-center gap-2 pt-1">
             <ui-button type="submit" variant="brand" size="sm" icon="@tui.check">
@@ -95,24 +65,9 @@
     <!-- Main-->
     <ui-grid-item [colSpanLg]="2" [flex]="true" gap="md">
       <ui-grid [cols]="2" [colsSm]="3" gap="md">
-        <ui-kpi-card
-          label="A"
-          value="Some val"
-          icon="@tui.chart-column"
-          accentColor="blue"
-        />
-        <ui-kpi-card
-          label="B"
-          value="Somee val"
-          icon="@tui.trending-up"
-          accentColor="blue"
-        />
-        <ui-kpi-card
-          label="C"
-          value="0%"
-          icon="@tui.circle-check"
-          accentColor="blue"
-        />
+        <ui-kpi-card label="A" value="Some val" icon="@tui.chart-column" accentColor="primary" />
+        <ui-kpi-card label="B" value="Somee val" icon="@tui.trending-up" accentColor="primary" />
+        <ui-kpi-card label="C" value="0%" icon="@tui.circle-check" accentColor="primary" />
       </ui-grid>
 
       <!-- Table Card -->
@@ -120,13 +75,8 @@
         <div slot="header-actions" class="text-xs text-subtle font-medium">
           {{ demoData.length }}
         </div>
-        <ui-table
-          [columns]="columns"
-          [data]="demoData"
-          [fullHeight]="true"
-          trackByKey="id"
-          emptyMessage="No hay datos registrados"
-        />
+        <ui-table [columns]="columns" [data]="demoData" [fullHeight]="true" trackByKey="id"
+          emptyMessage="No hay datos registrados" />
       </ui-card>
     </ui-grid-item>
   </ui-grid>
@@ -134,18 +84,10 @@
   <!-- Data Table -->
   <ui-grid [cols]="1">
     <ui-grid-item>
-      <ui-data-table
-        [columns]="dataTableColumns"
-        [data]="dataTableResponse"
-        [page]="page"
-        [pageSize]="pageSize"
-        [pageSizeOptions]="[5, 10, 20]"
-        trackByKey="id"
-        emptyMessage="No hay datos registrados"
-        (pageChange)="onPageChange($event)"
-        (pageSizeChange)="onPageSizeChange($event)"
-        (stateChange)="onStateChange($event)"
-      />
+      <ui-data-table [columns]="dataTableColumns" [data]="dataTableResponse" [page]="page" [pageSize]="pageSize"
+        [pageSizeOptions]="[5, 10, 20]" trackByKey="id" emptyMessage="No hay datos registrados"
+        (pageChange)="onPageChange($event)" (pageSizeChange)="onPageSizeChange($event)"
+        (stateChange)="onStateChange($event)" />
     </ui-grid-item>
   </ui-grid>
 </ui-page-container>

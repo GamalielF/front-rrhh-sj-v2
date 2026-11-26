@@ -46,7 +46,7 @@ export const appConfig: ApplicationConfig = {
     provideCore({
       localeId: 'es-CO',
     }),
-    provideTheme(),
+    provideTheme({ theme: 'refined' }),
     provideUserProfileLoader(UserProfileService),
   ],
 };
