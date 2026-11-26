@@ -65,7 +65,7 @@
       <ui-card title="Botones">
         <div class="flex flex-col gap-4">
           <div>
-            <span class="text-xs font-medium text-gray-500 mb-2 block">Variantes</span>
+            <span class="text-xs font-medium text-muted mb-2 block">Variantes</span>
             <div class="flex flex-wrap gap-2">
               <ui-button variant="brand" size="sm">Brand</ui-button>
               <ui-button variant="primary" size="sm">Primary</ui-button>
@@ -78,7 +78,7 @@
           </div>
 
           <div>
-            <span class="text-xs font-medium text-gray-500 mb-2 block">Tamaños y estados</span>
+            <span class="text-xs font-medium text-muted mb-2 block">Tamaños y estados</span>
             <div class="flex flex-wrap items-center gap-2">
               <ui-button variant="brand" size="xs">XS</ui-button>
               <ui-button variant="brand" size="sm">SM</ui-button>
@@ -117,7 +117,7 @@
 
       <!-- Table Card -->
       <ui-card title="Table" [noPadding]="true" [fullHeight]="true">
-        <div slot="header-actions" class="text-xs text-gray-400 font-medium">
+        <div slot="header-actions" class="text-xs text-subtle font-medium">
           {{ demoData.length }}
         </div>
         <ui-table

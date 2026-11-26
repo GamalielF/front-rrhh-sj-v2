@@ -38,7 +38,7 @@ export class ModalComponent {
 
   get panelClass(): string {
     return [
-      'bg-white rounded-2xl border border-gray-200 shadow-xl',
+      'bg-surface rounded-2xl border border-line shadow-xl',
       'flex flex-col max-h-[90vh] overflow-hidden transition-all',
       SIZE_MAP[this.size] || SIZE_MAP['md'],
     ].join(' ');

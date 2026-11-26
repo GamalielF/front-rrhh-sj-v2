@@ -8,12 +8,17 @@ import { IconComponent } from '../icon/icon.component';
 import { KpiColor, KpiTrend } from './kpi-card.model';
 
 const ICON_BG_CLASSES: Record<KpiColor, string> = {
-  blue:    'bg-blue-50 text-[#3B82F6] border border-blue-100',
-  green:   'bg-emerald-50 text-[#16A34A] border border-emerald-100',
-  warning: 'bg-amber-50 text-[#D97706] border border-amber-100',
-  danger:  'bg-red-50 text-[#DC2626] border border-red-100',
-  info:    'bg-sky-50 text-sky-600 border border-sky-100',
-  purple:  'bg-purple-50 text-[#8B5CF6] border border-purple-100',
+  primary:   'bg-primary-soft text-primary border border-primary-soft-hover',
+  brand:     'bg-primary-soft text-sanjose-blue border border-primary-soft-border',
+  success:   'bg-success-soft text-success border border-success-soft-hover',
+  warning:   'bg-warning-soft text-warning border border-warning-soft-hover',
+  danger:    'bg-danger-soft text-danger border border-danger-soft-hover',
+  info:      'bg-info-soft text-info border border-info-soft-hover',
+  secondary: 'bg-secondary-soft text-secondary border border-secondary-soft-hover',
+  neutral:   'bg-surface-2 text-ink-3 border border-line',
+  blue:      'bg-primary-soft text-primary border border-primary-soft-hover',
+  green:     'bg-success-soft text-success border border-success-soft-hover',
+  purple:    'bg-secondary-soft text-secondary border border-secondary-soft-hover',
 };
 
 @Component({

@@ -63,7 +63,7 @@ export class DropdownComponent {
       isIconOnly
         ? (TRIGGER_ICON_SIZES[this.triggerSize] || TRIGGER_ICON_SIZES.sm)
         : (TRIGGER_SIZES[this.triggerSize] || TRIGGER_SIZES.sm),
-      this.isOpen ? 'ring-2 ring-[#3B82F6]/30 bg-gray-100 text-gray-900' : '',
+      this.isOpen ? 'ring-2 ring-primary/30 bg-surface-2 text-ink' : '',
       this.triggerClass,
     ]
       .filter(Boolean)
@@ -94,41 +94,41 @@ export class DropdownComponent {
 
   getItemVariantClass(item: DropdownItem): string {
     if (item.disabled) {
-      return 'text-gray-400 cursor-not-allowed opacity-60';
+      return 'text-subtle cursor-not-allowed opacity-60';
     }
 
     switch (item.variant) {
       case 'danger':
-        return 'text-red-600 hover:bg-red-50 hover:text-red-700 active:bg-red-100';
+        return 'text-danger hover:bg-danger-soft hover:text-danger-hover active:bg-danger-soft-hover';
       case 'brand':
-        return 'text-[#0061A1] hover:bg-blue-50 hover:text-[#004e82] active:bg-blue-100';
+        return 'text-sanjose-blue hover:bg-primary-soft hover:text-navy-400 active:bg-primary-soft-hover';
       case 'primary':
-        return 'text-[#3B82F6] hover:bg-blue-50 hover:text-[#2563EB] active:bg-blue-100';
+        return 'text-primary hover:bg-primary-soft hover:text-primary-hover active:bg-primary-soft-hover';
       case 'warning':
-        return 'text-amber-600 hover:bg-amber-50 hover:text-amber-700 active:bg-amber-100';
+        return 'text-warning hover:bg-warning-soft hover:text-warning-hover active:bg-warning-soft-hover';
       case 'info':
-        return 'text-sky-600 hover:bg-sky-50 hover:text-sky-700 active:bg-sky-100';
+        return 'text-info hover:bg-info-soft hover:text-info-hover active:bg-info-soft-hover';
       case 'default':
       default:
-        return 'text-gray-700 hover:bg-gray-50 hover:text-gray-900 active:bg-gray-100';
+        return 'text-ink-3 hover:bg-canvas hover:text-ink active:bg-surface-2';
     }
   }
 
   getItemIconClass(item: DropdownItem): string {
-    if (item.disabled) return 'text-gray-400';
+    if (item.disabled) return 'text-subtle';
     switch (item.variant) {
       case 'danger':
-        return 'text-red-500';
+        return 'text-danger-strong';
       case 'brand':
-        return 'text-[#0061A1]';
+        return 'text-sanjose-blue';
       case 'primary':
-        return 'text-[#3B82F6]';
+        return 'text-primary';
       case 'warning':
-        return 'text-amber-500';
+        return 'text-warning-strong';
       case 'info':
-        return 'text-sky-500';
+        return 'text-info-strong';
       default:
-        return 'text-gray-400 group-hover:text-gray-600';
+        return 'text-subtle group-hover:text-ink-4';
     }
   }
 

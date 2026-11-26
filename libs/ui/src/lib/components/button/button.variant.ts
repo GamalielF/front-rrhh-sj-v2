@@ -6,21 +6,21 @@ export const BASE = [
   'border rounded-lg',
   'cursor-pointer select-none whitespace-nowrap',
   'transition-all duration-150 ease-in-out',
-  'outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-2',
+  'outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2',
   'disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none',
   'relative',
 ].join(' ');
 
 export const VARIANT_CLASSES: Record<ButtonVariant, string> = {
-  primary:    'bg-[#3B82F6] text-white border-[#3B82F6] shadow-xs hover:bg-[#2563EB] hover:border-[#2563EB] active:bg-[#1D4ED8]',
-  brand:      'bg-[#4CA42F] text-white border-[#4CA42F] shadow-xs hover:bg-[#3b8723] hover:border-[#3b8723] active:bg-[#2f6c1e]',
-  'brand-blue': 'bg-[#0061A1] text-white border-[#0061A1] shadow-xs hover:bg-[#005087] hover:border-[#005087] active:bg-[#00406d]',
-  secondary:  'bg-white text-gray-800 border-gray-300 shadow-xs hover:bg-gray-50 hover:border-gray-400 hover:text-gray-900 active:bg-gray-100',
-  outline:    'bg-transparent text-[#3B82F6] border-[#3B82F6]/60 hover:bg-[#3B82F6]/10 active:bg-[#3B82F6]/20',
-  ghost:      'bg-transparent text-gray-700 border-transparent hover:bg-gray-100 hover:text-gray-900 active:bg-gray-200',
-  light:      'bg-gray-100 text-gray-800 border-transparent hover:bg-gray-200 active:bg-gray-300',
-  danger:     'bg-[#DC2626] text-white border-[#DC2626] shadow-xs hover:bg-[#B91C1C] hover:border-[#B91C1C] active:bg-[#991B1B]',
-  success:    'bg-[#16A34A] text-white border-[#16A34A] shadow-xs hover:bg-[#15803D] hover:border-[#15803D] active:bg-[#166534]',
+  primary:    'bg-primary text-on-primary border-primary shadow-xs hover:bg-primary-hover hover:border-primary-hover active:bg-primary-active',
+  brand:      'bg-sanjose-green text-on-primary border-sanjose-green shadow-xs hover:bg-sanjose-green-hover hover:border-sanjose-green-hover active:bg-sanjose-green-active',
+  'brand-blue': 'bg-sanjose-blue text-on-primary border-sanjose-blue shadow-xs hover:bg-sanjose-blue-hover hover:border-sanjose-blue-hover active:bg-navy-700',
+  secondary:  'bg-surface text-ink-2 border-line-strong shadow-xs hover:bg-canvas hover:border-line-stronger hover:text-ink active:bg-surface-2',
+  outline:    'bg-transparent text-primary border-primary/60 hover:bg-primary/10 active:bg-primary/20',
+  ghost:      'bg-transparent text-ink-3 border-transparent hover:bg-surface-2 hover:text-ink active:bg-surface-3',
+  light:      'bg-surface-2 text-ink-2 border-transparent hover:bg-surface-3 active:bg-surface-4',
+  danger:     'bg-danger text-on-primary border-danger shadow-xs hover:bg-danger-hover hover:border-danger-hover active:bg-danger-active',
+  success:    'bg-success text-on-primary border-success shadow-xs hover:bg-success-hover hover:border-success-hover active:bg-success-active',
 };
 
 export const SIZE_CLASSES: Record<ButtonSize, string> = {

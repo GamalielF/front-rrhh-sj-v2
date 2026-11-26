@@ -13,11 +13,11 @@ nav::-webkit-scrollbar-track {
   background: transparent;
 }
 nav::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: color-mix(in srgb, var(--lumen-on-chrome, #ffffff) 15%, transparent);
   border-radius: 4px;
 }
 nav::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: color-mix(in srgb, var(--lumen-on-chrome, #ffffff) 30%, transparent);
 }
 
 

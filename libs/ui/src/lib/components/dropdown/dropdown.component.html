@@ -20,7 +20,7 @@
 
   <div
     *ngIf="isOpen"
-    class="absolute z-50 w-max min-w-[8.5rem] max-w-xs p-1 bg-white rounded-xl border border-gray-100 shadow-xl shadow-gray-900/10 focus:outline-none transition-all ui-dropdown-panel animate-in"
+    class="absolute z-50 w-max min-w-[8.5rem] max-w-xs p-1 bg-surface rounded-xl border border-line-subtle shadow-xl shadow-ink/10 focus:outline-none transition-all ui-dropdown-panel animate-in"
     [ngClass]="[placementClass, menuClass]"
     role="menu"
     tabindex="-1"
@@ -28,13 +28,13 @@
   >
     <div
       *ngIf="menuTitle"
-      class="px-2.5 py-1 text-[10px] font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-100 mb-1"
+      class="px-2.5 py-1 text-[10px] font-semibold text-subtle uppercase tracking-wider border-b border-line-subtle mb-1"
     >
       {{ menuTitle }}
     </div>
 
     <ng-container *ngFor="let item of visibleItems; let i = index">
-      <div *ngIf="item.divider" class="my-1 border-t border-gray-100" role="separator"></div>
+      <div *ngIf="item.divider" class="my-1 border-t border-line-subtle" role="separator"></div>
 
       <button
         type="button"
@@ -53,7 +53,7 @@
 
         <div class="flex flex-col min-w-0 flex-1 text-left" *ngIf="item.description; else simpleLabel">
           <span class="truncate leading-tight">{{ item.label }}</span>
-          <span class="text-[10px] font-normal text-gray-400 leading-tight mt-0.5">{{ item.description }}</span>
+          <span class="text-[10px] font-normal text-subtle leading-tight mt-0.5">{{ item.description }}</span>
         </div>
 
         <ng-template #simpleLabel>

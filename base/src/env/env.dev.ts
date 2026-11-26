@@ -15,8 +15,6 @@ export const env: AppEnvironment = {
   },
   ui: {
     systemTitle: 'Sistema en perfil Dev',
-    systemDescription: 'Descripción corta del sistema',
-    logoSrc: 'assets/lumen/img/logo-blue.png',
-    backgroundImage: '/assets/lumen/img/sanjose-bg.jpg',
+    systemDescription: 'Descripción corta del sistema'
   },
 };

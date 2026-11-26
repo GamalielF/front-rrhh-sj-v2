@@ -33,8 +33,8 @@ export class CardComponent {
   }
 
   get hostClass(): string {
-    const base = 'bg-white rounded-xl overflow-hidden transition-shadow';
-    const border = this.bordered ? 'border border-gray-200' : '';
+    const base = 'bg-surface rounded-xl overflow-hidden transition-shadow';
+    const border = this.bordered ? 'border border-line' : '';
     const shadow = this.elevated ? 'shadow-xs hover:shadow-sm' : '';
     const height = this.fullHeight ? 'h-full flex-1 flex flex-col' : '';
     return [base, border, shadow, height].filter(Boolean).join(' ');

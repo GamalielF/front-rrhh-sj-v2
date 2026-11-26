@@ -7,23 +7,25 @@ import { CommonModule } from '@angular/common';
 import { BadgeVariant, BadgeSize, BadgeShape } from './badge.model';
 
 const VARIANT_CLASSES: Record<BadgeVariant, string> = {
-  primary: 'bg-blue-50 text-[#1D4ED8] border border-blue-200 font-medium',
-  info:    'bg-sky-50 text-sky-800 border border-sky-200 font-medium',
-  warning: 'bg-amber-50 text-[#92400E] border border-amber-200 font-medium',
-  danger:  'bg-red-50 text-[#991B1B] border border-red-200 font-medium',
-  success: 'bg-emerald-50 text-[#065F46] border border-emerald-200 font-medium',
-  neutral: 'bg-gray-100 text-gray-800 border border-gray-200 font-medium',
-  brand:   'bg-emerald-50 text-[#166534] border border-emerald-200 font-medium',
+  primary:   'bg-primary-soft text-primary-active border border-primary-soft-border font-medium',
+  secondary: 'bg-secondary-soft text-secondary-ink border border-secondary-soft-border font-medium',
+  info:      'bg-info-soft text-info-active border border-info-soft-border font-medium',
+  warning:   'bg-warning-soft text-warning-active border border-warning-soft-border font-medium',
+  danger:    'bg-danger-soft text-danger-active border border-danger-soft-border font-medium',
+  success:   'bg-success-soft text-success-deep border border-success-soft-border font-medium',
+  neutral:   'bg-surface-2 text-ink-2 border border-line font-medium',
+  brand:     'bg-success-soft text-success-active border border-success-soft-border font-medium',
 };
 
 const DOT_CLASSES: Record<BadgeVariant, string> = {
-  primary: 'bg-[#3B82F6]',
-  info:    'bg-sky-500',
-  warning: 'bg-[#D97706]',
-  danger:  'bg-[#DC2626]',
-  success: 'bg-[#16A34A]',
-  neutral: 'bg-gray-400',
-  brand:   'bg-[#4CA42F]',
+  primary:   'bg-primary',
+  secondary: 'bg-secondary',
+  info:      'bg-info-strong',
+  warning:   'bg-warning',
+  danger:    'bg-danger',
+  success:   'bg-success',
+  neutral:   'bg-surface-5',
+  brand:     'bg-sanjose-green',
 };
 
 const SIZE_CLASSES: Record<BadgeSize, string> = {

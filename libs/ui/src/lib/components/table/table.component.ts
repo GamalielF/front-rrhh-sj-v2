@@ -13,17 +13,17 @@ import { IconComponent } from '../icon/icon.component';
 import { DropdownComponent } from '../dropdown/dropdown.component';
 import { DropdownItem, DropdownTriggerVariant } from '../dropdown/dropdown.model';
 
-const ACTION_BASE = 'inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border transition-all duration-150 cursor-pointer select-none outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed';
+const ACTION_BASE = 'inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg border transition-all duration-150 cursor-pointer select-none outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed';
 
 const ACTION_VARIANT: Record<string, string> = {
-  primary:   'bg-blue-50 text-[#1D4ED8] border-blue-200 hover:bg-blue-100 active:bg-blue-200',
-  secondary: 'bg-gray-100 text-gray-800 border-gray-200 hover:bg-gray-200 active:bg-gray-300',
-  brand:     'bg-emerald-50 text-[#15803D] border-emerald-200 hover:bg-emerald-100 active:bg-emerald-200',
-  danger:    'bg-red-50 text-[#B91C1C] border-red-200 hover:bg-red-100 active:bg-red-200',
-  ghost:     'bg-transparent text-gray-600 border-transparent hover:bg-gray-100 hover:text-gray-900',
-  warning:   'bg-amber-50 text-amber-700 border-amber-200 hover:bg-amber-100 active:bg-amber-200',
-  info:      'bg-sky-50 text-sky-700 border-sky-200 hover:bg-sky-100 active:bg-sky-200',
-  default:   'bg-white text-gray-700 border-gray-200 hover:bg-gray-50 active:bg-gray-100 shadow-xs',
+  primary:   'bg-primary-soft text-primary-active border-primary-soft-border hover:bg-primary-soft-hover active:bg-primary-soft-border',
+  secondary: 'bg-surface-2 text-ink-2 border-line hover:bg-surface-3 active:bg-surface-4',
+  brand:     'bg-success-soft text-success-hover border-success-soft-border hover:bg-success-soft-hover active:bg-success-soft-border',
+  danger:    'bg-danger-soft text-danger-hover border-danger-soft-border hover:bg-danger-soft-hover active:bg-danger-soft-border',
+  ghost:     'bg-transparent text-ink-4 border-transparent hover:bg-surface-2 hover:text-ink',
+  warning:   'bg-warning-soft text-warning-hover border-warning-soft-border hover:bg-warning-soft-hover active:bg-warning-soft-border',
+  info:      'bg-info-soft text-info-hover border-info-soft-border hover:bg-info-soft-hover active:bg-info-soft-border',
+  default:   'bg-surface text-ink-3 border-line hover:bg-canvas active:bg-surface-2 shadow-xs',
 };
 
 @Component({

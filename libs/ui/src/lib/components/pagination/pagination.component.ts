@@ -12,10 +12,10 @@ import { IconComponent } from '../icon/icon.component';
 
 const NAV_BTN_BASE = [
   'inline-flex items-center justify-center w-9 h-9 rounded-lg',
-  'border border-gray-200 bg-white text-gray-600',
-  'hover:bg-gray-50 hover:text-gray-900 hover:border-gray-300',
-  'active:bg-gray-100',
-  'outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6] focus-visible:ring-offset-1',
+  'border border-line bg-surface text-ink-4',
+  'hover:bg-canvas hover:text-ink hover:border-line-strong',
+  'active:bg-surface-2',
+  'outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-1',
   'disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none',
   'transition-all duration-150 cursor-pointer',
 ].join(' ');

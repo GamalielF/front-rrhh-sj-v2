@@ -13,8 +13,6 @@ export interface ApiEnvironment {
 export interface UiEnvironment {
   systemTitle: string;
   systemDescription: string;
-  logoSrc: string;
-  backgroundImage: string;
 }
 
 export interface AppEnvironment {

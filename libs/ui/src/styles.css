@@ -9,26 +9,228 @@
 /* Base */
 @import 'tailwindcss';
 
-/* Tailwind Theme */
+/* Tipografía */
 @theme {
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-display: 'Poppins', 'Inter', sans-serif;
   --font-mono: 'Inconsolata', monospace;
+}
 
-  --color-primary: #3B82F6;
-  --color-primary-hover: #2563EB;
-  --color-secondary: #8B5CF6;
-  --color-success: #16A34A;
-  --color-warning: #D97706;
-  --color-danger: #DC2626;
+/* Tokens de tema */
+@theme inline {
+  /* Marca */
+  --color-navy-100: var(--lumen-navy-100);
+  --color-navy-200: var(--lumen-navy-200);
+  --color-navy-300: var(--lumen-navy-300);
+  --color-navy-400: var(--lumen-navy-400);
+  --color-navy-500: var(--lumen-navy-500);
+  --color-navy-600: var(--lumen-navy-600);
+  --color-navy-700: var(--lumen-navy-700);
+  --color-navy-800: var(--lumen-navy-800);
+  --color-navy-900: var(--lumen-navy-900);
+  --color-navy-950: var(--lumen-navy-950);
 
-  --color-sanjose-blue: #0061A1;
-  --color-sanjose-blue-hover: #005087;
-  --color-sanjose-green: #4CA42F;
-  --color-sanjose-green-hover: #3b8723;
+  --color-sanjose-blue: var(--lumen-navy-200);
+  --color-sanjose-blue-hover: var(--lumen-navy-300);
+  --color-sanjose-blue-active: var(--lumen-navy-700);
 
-  --color-border: #e5e7eb;
-  --color-border-subtle: #f3f4f6;
+  --color-sanjose-green: var(--lumen-sanjose-green);
+  --color-sanjose-green-hover: var(--lumen-sanjose-green-hover);
+  --color-sanjose-green-active: var(--lumen-sanjose-green-active);
+
+  /* Primario */
+  --color-primary-soft: var(--lumen-primary-soft);
+  --color-primary-soft-hover: var(--lumen-primary-soft-hover);
+  --color-primary-soft-border: var(--lumen-primary-soft-border);
+  --color-primary-soft-edge: var(--lumen-primary-soft-edge);
+  --color-primary-soft-strong: var(--lumen-primary-soft-strong);
+  --color-primary: var(--lumen-primary);
+  --color-primary-hover: var(--lumen-primary-hover);
+  --color-primary-active: var(--lumen-primary-active);
+  --color-primary-deep: var(--lumen-primary-deep);
+
+  /* Info */
+  --color-info-soft: var(--lumen-info-soft);
+  --color-info-soft-hover: var(--lumen-info-soft-hover);
+  --color-info-soft-border: var(--lumen-info-soft-border);
+  --color-info-focus: var(--lumen-info-focus);
+  --color-info-strong: var(--lumen-info-strong);
+  --color-info: var(--lumen-info);
+  --color-info-hover: var(--lumen-info-hover);
+  --color-info-active: var(--lumen-info-active);
+
+  /* Success */
+  --color-success-soft: var(--lumen-success-soft);
+  --color-success-soft-hover: var(--lumen-success-soft-hover);
+  --color-success-soft-border: var(--lumen-success-soft-border);
+  --color-success-ink: var(--lumen-success-ink);
+  --color-success-deep: var(--lumen-success-deep);
+  --color-success: var(--lumen-success);
+  --color-success-hover: var(--lumen-success-hover);
+  --color-success-active: var(--lumen-success-active);
+
+  /* Warning */
+  --color-warning-soft: var(--lumen-warning-soft);
+  --color-warning-soft-hover: var(--lumen-warning-soft-hover);
+  --color-warning-soft-border: var(--lumen-warning-soft-border);
+  --color-warning-strong: var(--lumen-warning-strong);
+  --color-warning: var(--lumen-warning);
+  --color-warning-hover: var(--lumen-warning-hover);
+  --color-warning-active: var(--lumen-warning-active);
+
+  /* Danger */
+  --color-danger-soft: var(--lumen-danger-soft);
+  --color-danger-soft-hover: var(--lumen-danger-soft-hover);
+  --color-danger-soft-border: var(--lumen-danger-soft-border);
+  --color-danger-focus: var(--lumen-danger-focus);
+  --color-danger-strong: var(--lumen-danger-strong);
+  --color-danger: var(--lumen-danger);
+  --color-danger-hover: var(--lumen-danger-hover);
+  --color-danger-active: var(--lumen-danger-active);
+
+  /* Secundario */
+  --color-secondary-soft: var(--lumen-secondary-soft);
+  --color-secondary-soft-hover: var(--lumen-secondary-soft-hover);
+  --color-secondary-soft-border: var(--lumen-secondary-soft-border);
+  --color-secondary-ink: var(--lumen-secondary-ink);
+  --color-secondary: var(--lumen-secondary);
+
+  /* Neutros */
+  --color-shell: var(--lumen-shell);
+  --color-canvas: var(--lumen-canvas);
+  --color-surface: var(--lumen-surface);
+  --color-surface-2: var(--lumen-surface-2);
+  --color-surface-3: var(--lumen-surface-3);
+  --color-surface-4: var(--lumen-surface-4);
+  --color-surface-5: var(--lumen-surface-5);
+
+  /* Chrome */
+  --color-chrome: var(--lumen-chrome);
+  --color-chrome-border: var(--lumen-chrome-border);
+  --color-chrome-muted: var(--lumen-chrome-muted);
+  --color-on-chrome: var(--lumen-on-chrome);
+  --color-on-primary: var(--lumen-on-primary);
+
+  --color-line-subtle: var(--lumen-line-subtle);
+  --color-line: var(--lumen-line);
+  --color-line-strong: var(--lumen-line-strong);
+  --color-line-stronger: var(--lumen-line-stronger);
+
+  --color-ink: var(--lumen-ink);
+  --color-ink-2: var(--lumen-ink-2);
+  --color-ink-3: var(--lumen-ink-3);
+  --color-ink-4: var(--lumen-ink-4);
+  --color-muted: var(--lumen-muted);
+  --color-subtle: var(--lumen-subtle);
+  --color-faint: var(--lumen-faint);
+
+  /* Compatibilidad */
+  --color-border: var(--lumen-line);
+  --color-border-subtle: var(--lumen-line-subtle);
+}
+
+/* Tema clásico */
+:root {
+  /* Marca */
+  --lumen-navy-100: #4d93c5;
+  --lumen-navy-200: #0061a1;
+  --lumen-navy-300: #005087;
+  --lumen-navy-400: #004e82;
+  --lumen-navy-500: #004d80;
+  --lumen-navy-600: #004a7c;
+  --lumen-navy-700: #00406d;
+  --lumen-navy-800: #003d66;
+  --lumen-navy-900: #00385c;
+  --lumen-navy-950: #002e4f;
+
+  --lumen-sanjose-green: #4ca42f;
+  --lumen-sanjose-green-hover: #3b8723;
+  --lumen-sanjose-green-active: #2f6c1e;
+
+  --lumen-on-chrome: #ffffff;
+  --lumen-on-primary: #ffffff;
+  --lumen-chrome: var(--lumen-navy-950);
+  --lumen-chrome-border: var(--lumen-navy-600);
+  --lumen-chrome-muted: #cbd5e1;
+  --lumen-shell: #f1f5f9;
+
+  /* Primario */
+  --lumen-primary-soft: var(--color-blue-50);
+  --lumen-primary-soft-hover: var(--color-blue-100);
+  --lumen-primary-soft-border: var(--color-blue-200);
+  --lumen-primary-soft-edge: var(--color-blue-300);
+  --lumen-primary-soft-strong: var(--color-blue-400);
+  --lumen-primary: var(--color-blue-500);
+  --lumen-primary-hover: var(--color-blue-600);
+  --lumen-primary-active: var(--color-blue-700);
+  --lumen-primary-deep: var(--color-blue-800);
+
+  /* Info */
+  --lumen-info-soft: var(--color-sky-50);
+  --lumen-info-soft-hover: var(--color-sky-100);
+  --lumen-info-soft-border: var(--color-sky-200);
+  --lumen-info-focus: var(--color-sky-400);
+  --lumen-info-strong: var(--color-sky-500);
+  --lumen-info: var(--color-sky-600);
+  --lumen-info-hover: var(--color-sky-700);
+  --lumen-info-active: var(--color-sky-800);
+
+  /* Success */
+  --lumen-success-soft: var(--color-emerald-50);
+  --lumen-success-soft-hover: var(--color-emerald-100);
+  --lumen-success-soft-border: var(--color-emerald-200);
+  --lumen-success-ink: var(--color-emerald-700);
+  --lumen-success-deep: var(--color-emerald-800);
+  --lumen-success: var(--color-green-600);
+  --lumen-success-hover: var(--color-green-700);
+  --lumen-success-active: var(--color-green-800);
+
+  /* Warning */
+  --lumen-warning-soft: var(--color-amber-50);
+  --lumen-warning-soft-hover: var(--color-amber-100);
+  --lumen-warning-soft-border: var(--color-amber-200);
+  --lumen-warning-strong: var(--color-amber-500);
+  --lumen-warning: var(--color-amber-600);
+  --lumen-warning-hover: var(--color-amber-700);
+  --lumen-warning-active: var(--color-amber-800);
+
+  /* Danger */
+  --lumen-danger-soft: var(--color-red-50);
+  --lumen-danger-soft-hover: var(--color-red-100);
+  --lumen-danger-soft-border: var(--color-red-200);
+  --lumen-danger-focus: var(--color-red-400);
+  --lumen-danger-strong: var(--color-red-500);
+  --lumen-danger: var(--color-red-600);
+  --lumen-danger-hover: var(--color-red-700);
+  --lumen-danger-active: var(--color-red-800);
+
+  /* Secundario */
+  --lumen-secondary-soft: var(--color-purple-50);
+  --lumen-secondary-soft-hover: var(--color-purple-100);
+  --lumen-secondary-soft-border: var(--color-purple-200);
+  --lumen-secondary-ink: var(--color-purple-700);
+  --lumen-secondary: var(--color-violet-500);
+
+  /* Neutros */
+  --lumen-canvas: var(--color-gray-50);
+  --lumen-surface: var(--color-white);
+  --lumen-surface-2: var(--color-gray-100);
+  --lumen-surface-3: var(--color-gray-200);
+  --lumen-surface-4: var(--color-gray-300);
+  --lumen-surface-5: var(--color-gray-400);
+
+  --lumen-line-subtle: var(--color-gray-100);
+  --lumen-line: var(--color-gray-200);
+  --lumen-line-strong: var(--color-gray-300);
+  --lumen-line-stronger: var(--color-gray-400);
+
+  --lumen-ink: var(--color-gray-900);
+  --lumen-ink-2: var(--color-gray-800);
+  --lumen-ink-3: var(--color-gray-700);
+  --lumen-ink-4: var(--color-gray-600);
+  --lumen-muted: var(--color-gray-500);
+  --lumen-subtle: var(--color-gray-400);
+  --lumen-faint: var(--color-gray-300);
 }
 
 /* Global */
@@ -43,8 +245,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-  background-color: #f9fafb;
-  color: #111827;
+  background-color: var(--lumen-canvas);
+  color: var(--lumen-ink);
 }
 
 *,
@@ -55,7 +257,7 @@ body {
 
 /* Accessibility */
 :focus-visible {
-  outline: 2px solid var(--color-primary, #3b82f6);
+  outline: 2px solid var(--lumen-primary);
   outline-offset: 2px;
 }
 
@@ -106,10 +308,22 @@ button:focus-visible,
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d1d5db;
+  background: var(--lumen-line-strong);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9ca3af;
+  background: var(--lumen-line-stronger);
 }
+
+/* Transición de tema */
+.lumen-theme-transition *,
+.lumen-theme-transition *::before,
+.lumen-theme-transition *::after {
+  transition-property: background-color, border-color, color, box-shadow !important;
+  transition-duration: 220ms !important;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1) !important;
+}
+
+/* Temas */
+@import './styles/themes/refined.css';

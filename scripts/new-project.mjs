@@ -173,6 +173,7 @@ function updateAngularJson(name) {
       'node_modules/@taiga-ui/styles/taiga-ui-theme.less',
       `projects/${name}/src/styles.css`,
       'libs/ui/src/styles.css',
+      `projects/${name}/src/themes.css`,
     ];
 
     buildOptions.stylePreprocessorOptions = {

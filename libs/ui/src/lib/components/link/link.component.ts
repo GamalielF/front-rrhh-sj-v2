@@ -40,14 +40,14 @@ export class LinkComponent {
   get variantClasses(): string {
     switch (this.variant) {
       case 'primary':
-        return 'text-blue-600 hover:text-blue-800';
+        return 'text-primary-hover hover:text-primary-deep';
       case 'secondary':
-        return 'text-slate-700 hover:text-slate-900';
+        return 'text-ink-3 hover:text-ink';
       case 'muted':
-        return 'text-gray-500 hover:text-gray-700';
+        return 'text-muted hover:text-ink-3';
       case 'brand':
       default:
-        return 'text-[#0061A1] hover:text-[#004d80]';
+        return 'text-sanjose-blue hover:text-navy-500';
     }
   }
 

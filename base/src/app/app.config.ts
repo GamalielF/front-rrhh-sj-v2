@@ -5,7 +5,7 @@ import { provideClientHydration, withNoHttpTransferCache } from '@angular/platfo
 import { authInterceptor, provideAuth, provideUserProfileLoader } from '@lumen/auth';
 import { provideLumenBase } from '@lumen/base';
 import { provideHttp } from '@lumen/http';
-import { provideCore } from '@lumen/core';
+import { provideCore, provideTheme } from '@lumen/core';
 import { routes } from './app.routes';
 import { env } from '@env';
 import { UserProfileService } from './core/services/user-profile.service';
@@ -46,6 +46,7 @@ export const appConfig: ApplicationConfig = {
     provideCore({
       localeId: 'es-CO',
     }),
+    provideTheme(),
     provideUserProfileLoader(UserProfileService),
   ],
 };

@@ -128,8 +128,8 @@ export class InputComponent implements ControlValueAccessor, OnInit, OnDestroy {
         : 'py-2.5 text-sm min-h-[44px]';
 
     const baseBorder = this.hasError
-      ? 'border-[#DC2626] focus:ring-2 focus:ring-[#DC2626]/20 focus:border-[#DC2626]'
-      : 'border-gray-300 focus:ring-2 focus:ring-[#3B82F6]/25 focus:border-[#3B82F6]';
+      ? 'border-danger focus:ring-2 focus:ring-danger/20 focus:border-danger'
+      : 'border-line-strong focus:ring-2 focus:ring-primary/25 focus:border-primary';
 
     const pl = this.prefixIcon ? (this.size === 'sm' ? 'pl-9' : 'pl-10') : 'pl-3.5';
     const pr = this.suffixIcon ? (this.size === 'sm' ? 'pr-9' : 'pr-10') : 'pr-3.5';

@@ -51,7 +51,7 @@ export class FormComponent {
   private focusFirstError(): void {
     setTimeout(() => {
       const invalidElement = this.el.nativeElement.querySelector(
-        'input.border-\\[\\#DC2626\\], input[aria-invalid="true"], select.border-\\[\\#DC2626\\], textarea.border-\\[\\#DC2626\\], .ng-invalid:not(form)'
+        'input.border-danger, input[aria-invalid="true"], select.border-danger, textarea.border-danger, .ng-invalid:not(form)'
       ) as HTMLElement;
       if (invalidElement) {
         invalidElement.focus();

@@ -4,4 +4,15 @@ export interface KpiTrend {
   label?: string;
 }
 
-export type KpiColor = 'blue' | 'green' | 'warning' | 'danger' | 'info' | 'purple';
+export type KpiColor =
+  | 'primary'
+  | 'brand'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'info'
+  | 'secondary'
+  | 'neutral'
+  | 'blue'
+  | 'green'
+  | 'purple';

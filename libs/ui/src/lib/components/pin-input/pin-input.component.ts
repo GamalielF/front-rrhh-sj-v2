@@ -212,8 +212,8 @@ export class PinInputComponent
     const isErr = this.hasError;
 
     const baseBorder = isErr
-      ? 'border-red-400 text-red-700 bg-red-50/40 focus:border-red-500 focus:ring-1 focus:ring-red-500'
-      : 'border-gray-300 text-gray-900 bg-white hover:border-gray-400 focus:border-[#0061A1] focus:ring-1 focus:ring-[#0061A1]';
+      ? 'border-danger-focus text-danger-hover bg-danger-soft/40 focus:border-danger-strong focus:ring-1 focus:ring-danger-strong'
+      : 'border-line-strong text-ink bg-surface hover:border-line-stronger focus:border-sanjose-blue focus:ring-1 focus:ring-sanjose-blue';
 
     return `${this.cellDimensionClasses} ${baseBorder}`;
   }

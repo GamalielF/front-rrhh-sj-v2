@@ -48,7 +48,7 @@
     (click)="$event.stopPropagation()"
   >
     <ng-content select="[slot=header]">
-      <div class="px-3.5 py-3 rounded-xl bg-slate-50/80 border border-slate-100 flex items-start sm:items-center gap-3 mb-1.5">
+      <div class="px-3.5 py-3 rounded-xl bg-surface-2/80 border border-line-subtle flex items-start sm:items-center gap-3 mb-1.5">
         <div
           class="flex items-center justify-center w-11 h-11 rounded-full font-bold text-sm text-white shadow-sm overflow-hidden shrink-0 mt-0.5 sm:mt-0"
           [ngClass]="avatarBgColor"
@@ -67,14 +67,14 @@
         <!-- User Details -->
         <div class="flex-1 min-w-0">
           <p
-            class="text-sm font-semibold text-slate-800 leading-snug whitespace-normal break-words"
+            class="text-sm font-semibold text-ink-2 leading-snug whitespace-normal break-words"
             [title]="fullName"
           >
             {{ fullName }}
           </p>
           <p
             *ngIf="displayEmail"
-            class="text-xs text-slate-500 mt-0.5 whitespace-normal break-all"
+            class="text-xs text-muted mt-0.5 whitespace-normal break-all"
             [title]="displayEmail"
           >
             {{ displayEmail }}
@@ -86,7 +86,7 @@
             {{ displayUsername }}
           </p>
           <div *ngIf="displayRole" class="mt-1 flex items-center">
-            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-[#0061A1]/10 text-[#0061A1] border border-[#0061A1]/20 max-w-full whitespace-normal break-words">
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-sanjose-blue/10 text-sanjose-blue border border-sanjose-blue/20 max-w-full whitespace-normal break-words">
               {{ displayRole }}
             </span>
           </div>
@@ -98,7 +98,7 @@
     <div class="space-y-0.5" role="none">
       <ng-container *ngFor="let item of visibleItems; let i = index">
         <!-- Divider -->
-        <div *ngIf="item.divider" class="h-px bg-slate-100 my-1" role="separator"></div>
+        <div *ngIf="item.divider" class="h-px bg-line-subtle my-1" role="separator"></div>
         
         <!-- Item -->
         <button
@@ -121,7 +121,7 @@
           <!-- Label -->
           <div class="flex flex-col min-w-0 flex-1 text-left" *ngIf="item.description; else simpleLabel">
             <span class="truncate leading-tight font-medium">{{ item.label }}</span>
-            <span class="text-[10px] font-normal text-slate-400 leading-tight mt-0.5">{{ item.description }}</span>
+            <span class="text-[10px] font-normal text-subtle leading-tight mt-0.5">{{ item.description }}</span>
           </div>
 
           <ng-template #simpleLabel>

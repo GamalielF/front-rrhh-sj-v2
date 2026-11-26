@@ -47,7 +47,7 @@ export class UserProfileMenuComponent {
   @Input() nameFormat: UserProfileNameFormat = 'first-last';
   @Input() placement: DropdownPlacement = 'bottom-end';
   @Input() closeOnClick = true;
-  @Input() avatarBgColor = 'bg-[#0061A1]';
+  @Input() avatarBgColor = 'bg-sanjose-blue';
   @Input() ariaLabel = 'Menú de usuario';
 
   @Output() itemClick = new EventEmitter<DropdownItem>();
@@ -133,7 +133,7 @@ export class UserProfileMenuComponent {
   }
 
   getItemIconClass(item: DropdownItem): string {
-    if (item.disabled) return 'text-gray-400';
+    if (item.disabled) return 'text-subtle';
     return USER_PROFILE_ITEM_ICON_VARIANTS[item.variant || 'default'] || USER_PROFILE_ITEM_ICON_VARIANTS.default;
   }
 
