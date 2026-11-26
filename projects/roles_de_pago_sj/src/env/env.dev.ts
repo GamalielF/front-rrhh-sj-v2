@@ -16,8 +16,8 @@ export const env: AppEnvironment = {
     rolesPagoApiUrl: 'http://localhost:8080/api/v1/roles-pago/',
   },
   ui: {
-    systemTitle: 'Sistema en perfil Dev',
-    systemDescription: 'Descripción corta del sistema',
+    systemTitle: 'S.I.R.P.A - Cooperativa de Ahorro y Crédito San José Ltda.',
+    systemDescription: 'Sistema de Rol de Pagos Administrado',
     logoSrc: 'img/logo-blue.png',
     backgroundImage: '/img/sanjose-bg.jpg',
   },

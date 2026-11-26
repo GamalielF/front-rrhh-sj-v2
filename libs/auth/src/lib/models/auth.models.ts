@@ -46,6 +46,12 @@ export interface AuthConfig {
   persistUserInStorage?: boolean;
   enableDebugMode?: boolean;
   reauthMode?: ReauthMode;
+  /**
+   * Al abrir la aplicación SIN token guardado, ¿intentar entrar con la cookie de renovación?
+   * true (por defecto): si hay una sesión anterior viva, entra directo sin pedir credenciales.
+   * false: cada pestaña nueva pide iniciar sesión; la renovación solo se usa si ya había un token (vencido).
+   */
+  refreshOnStartup?: boolean;
 }
 
 export interface UserProfileLoader<TUser extends UserSession = UserSession> {

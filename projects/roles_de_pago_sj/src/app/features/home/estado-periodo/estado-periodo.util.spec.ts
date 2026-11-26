@@ -36,8 +36,8 @@ describe('indicadoresDe', () => {
     expect(indicadores[1].acento).toBe('warning');
   });
 
-  it('si no falta nadie, las personas sin rol salen en verde', () => {
-    expect(indicadoresDe(resumen({ sinRol: 0 }), null, null)[1].acento).toBe('green');
+  it('si no falta nadie, las personas sin rol salen con el color principal', () => {
+    expect(indicadoresDe(resumen({ sinRol: 0 }), null, null)[1].acento).toBe('primary');
   });
 
   it('publicado suma cuántos abrieron su rol, con porcentaje, y los avisos fallidos en rojo', () => {
@@ -51,8 +51,8 @@ describe('indicadoresDe', () => {
     expect(indicadores[3].acento).toBe('danger');
   });
 
-  it('sin avisos fallidos salen en verde, y con los avisos deshabilitados no se muestran', () => {
-    expect(indicadoresDe(resumen(), null, informe({ fallidas: 0 }))[2].acento).toBe('green');
+  it('sin avisos fallidos salen con el color principal, y con los avisos deshabilitados no se muestran', () => {
+    expect(indicadoresDe(resumen(), null, informe({ fallidas: 0 }))[2].acento).toBe('primary');
     expect(indicadoresDe(resumen(), null, informe({ habilitadas: false })).some((i) => i.etiqueta === 'Avisos fallidos')).toBe(false);
   });
 });

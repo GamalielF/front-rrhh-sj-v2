@@ -1,0 +1,338 @@
+[data-theme='navidad'] {
+    /* Radii */
+    --radius-md: 0.625rem;
+    --radius-lg: 0.875rem;
+    --radius-xl: 1.125rem;
+    --radius-2xl: 1.5rem;
+
+    /* Surfaces (Tonos marfil cálido / nieve suave) */
+    --lumen-shell: #f4f2ed;
+    --lumen-canvas: #faf9f6;
+    --lumen-surface: #ffffff;
+    --lumen-surface-2: #f7f4ee;
+    --lumen-surface-3: #efe9de;
+    --lumen-surface-4: #dfd6c7;
+    --lumen-surface-5: #a89f91;
+
+    /* Chrome (Verde pino profundo) */
+    --lumen-chrome: #0f291e;
+    --lumen-chrome-border: rgba(212, 175, 55, 0.22);
+    --lumen-chrome-muted: #c8dcd2;
+    --lumen-on-chrome: #ffffff;
+    --lumen-on-primary: #ffffff;
+
+    /* Lines */
+    --lumen-line-subtle: #f0ece3;
+    --lumen-line: #e4ddd0;
+    --lumen-line-strong: #cfc4b2;
+    --lumen-line-stronger: #a39682;
+
+    /* Typography */
+    --lumen-ink: #17201b;
+    --lumen-ink-2: #24312a;
+    --lumen-ink-3: #384940;
+    --lumen-ink-4: #4e6157;
+    --lumen-muted: #5b6d63;
+    --lumen-subtle: #73847b;
+    --lumen-faint: #9caaa2;
+
+    /* Primary (Rojo carmesí navideño) */
+    --lumen-primary-soft: #fdf0f0;
+    --lumen-primary-soft-hover: #f9dcdc;
+    --lumen-primary-soft-border: #f2b5b5;
+    --lumen-primary-soft-edge: #e68585;
+    --lumen-primary-soft-strong: #d65454;
+    --lumen-primary: #b91c1c;
+    --lumen-primary-hover: #991b1b;
+    --lumen-primary-active: #7f1d1d;
+    --lumen-primary-deep: #450a0a;
+
+    /* Brand (Verde abeto & Pino) */
+    --lumen-navy-200: #b91c1c;
+    --lumen-navy-300: #991b1b;
+    --lumen-navy-700: #0f291e;
+
+    --lumen-brand: #166534;
+    --lumen-brand-hover: #14532d;
+    --lumen-brand-active: #052e16;
+
+    /* Info (Verde acebo / Teal invernal) */
+    --lumen-info-soft: #e6f4f1;
+    --lumen-info-soft-hover: #cce8e2;
+    --lumen-info-soft-border: #99d1c5;
+    --lumen-info: #0f766e;
+    --lumen-info-hover: #115e59;
+    --lumen-info-active: #134e4a;
+    --lumen-info-focus: #14b8a6;
+    --lumen-info-strong: #0d9488;
+
+    /* Success (Verde bosque) */
+    --lumen-success-soft: #eaf6ee;
+    --lumen-success-soft-hover: #d1ebd9;
+    --lumen-success-soft-border: #a3d7b4;
+    --lumen-success-ink: #14532d;
+    --lumen-success-deep: #052e16;
+    --lumen-success: #15803d;
+    --lumen-success-hover: #166534;
+    --lumen-success-active: #14532d;
+
+    /* Warning (Dorado estrella / Ámbar cálido) */
+    --lumen-warning-soft: #fef9e7;
+    --lumen-warning-soft-hover: #fcf0c8;
+    --lumen-warning-soft-border: #f5d77f;
+    --lumen-warning-strong: #d97706;
+    --lumen-warning: #b45309;
+    --lumen-warning-hover: #92400e;
+    --lumen-warning-active: #78350f;
+
+    /* Danger (Granate intenso para diferenciar de primary) */
+    --lumen-danger-soft: #fce8ec;
+    --lumen-danger-soft-hover: #f7cad3;
+    --lumen-danger-soft-border: #ee9cab;
+    --lumen-danger-focus: #e11d48;
+    --lumen-danger-strong: #be123c;
+    --lumen-danger: #9f1239;
+    --lumen-danger-hover: #881337;
+    --lumen-danger-active: #4c0519;
+
+    /* Secondary (Ciruela invernal / Vino) */
+    --lumen-secondary-soft: #f6eef8;
+    --lumen-secondary-soft-hover: #ead9ef;
+    --lumen-secondary-soft-border: #d4b2df;
+    --lumen-secondary-ink: #6b21a8;
+    --lumen-secondary: #7e22ce;
+
+    /* Elevations (Sombras con matiz pino oscuro) */
+    --lumen-refined-elevation-1: 0 1px 3px rgba(15, 41, 30, 0.06), 0 1px 2px rgba(15, 41, 30, 0.04);
+    --lumen-refined-elevation-2: 0 8px 24px -4px rgba(15, 41, 30, 0.09), 0 2px 8px -2px rgba(15, 41, 30, 0.05);
+    --lumen-refined-elevation-3: 0 20px 44px -10px rgba(15, 41, 30, 0.16), 0 8px 18px -6px rgba(15, 41, 30, 0.08);
+}
+
+[data-theme='navidad'] :is(h1, h2, h3, h4, h5, h6) {
+    letter-spacing: -0.015em;
+}
+
+/* Dashboard shell */
+[data-theme='navidad'] .lumen-sidebar {
+    background:
+        linear-gradient(180deg, #0f291e 0%, rgba(15, 41, 30, 0) 11rem),
+        url('/assets/lumen/themes/refined/chrome-waves.svg') center / cover no-repeat,
+        linear-gradient(180deg, #0f291e 0%, #0b2017 55%, #07160f 100%);
+    box-shadow: none;
+}
+
+[data-theme='navidad'] .lumen-sidebar-header {
+    height: 6rem;
+    padding-top: 0;
+    padding-bottom: 0;
+    background: transparent;
+    border-bottom-color: var(--lumen-chrome-border);
+}
+
+[data-theme='navidad'] .lumen-sidebar>nav,
+[data-theme='navidad'] .lumen-sidebar-footer {
+    border-right: 1px solid var(--lumen-chrome-border);
+}
+
+[data-theme='navidad'] .lumen-sidebar-footer {
+    border-top-color: rgba(212, 175, 55, 0.15);
+    background: rgba(0, 0, 0, 0.18);
+}
+
+[data-theme='navidad'] .lumen-sidebar-item {
+    border-radius: 9999px;
+}
+
+[data-theme='navidad'] .lumen-sidebar-item--active {
+    background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%);
+    box-shadow:
+        0 6px 16px -4px rgba(185, 28, 28, 0.55),
+        inset 0 1px 0 rgba(254, 240, 138, 0.35);
+}
+
+[data-theme='navidad'] .lumen-topbar {
+    background:
+        url('/assets/lumen/themes/refined/topbar-mesh.svg') right center / cover no-repeat,
+        linear-gradient(90deg, #0f291e 0%, #143627 65%, #0d241a 100%);
+    border-bottom: 1px solid var(--lumen-chrome-border);
+    box-shadow: 0 4px 20px -6px rgba(7, 22, 15, 0.25);
+}
+
+[data-theme='navidad'] .lumen-main {
+    background:
+        radial-gradient(circle at 92% 4%, rgba(217, 119, 6, 0.055) 0%, transparent 42%),
+        radial-gradient(circle at 8% 96%, rgba(22, 101, 52, 0.05) 0%, transparent 40%),
+        var(--lumen-canvas);
+}
+
+/* Login */
+[data-theme='navidad'] lumen-login .lumen-login-brand {
+    position: relative;
+    overflow: hidden;
+    background:
+        url('/assets/lumen/themes/refined/chrome-waves.svg') center / cover no-repeat,
+        linear-gradient(155deg, #991b1b 0%, #143627 58%, #091c13 100%);
+}
+
+[data-theme='navidad'] lumen-login .lumen-login-brand-top,
+[data-theme='navidad'] lumen-login .lumen-login-brand-bottom {
+    background: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+[data-theme='navidad'] lumen-login .lumen-login-brand-bottom {
+    border-top: 1px solid rgba(212, 175, 55, 0.22);
+    background: rgba(7, 22, 15, 0.35);
+    backdrop-filter: blur(8px);
+}
+
+/* Page header */
+[data-theme='navidad'] ui-page-header>div {
+    background: var(--lumen-surface);
+    border: 1px solid var(--lumen-line);
+    border-radius: var(--radius-xl);
+    padding: 1.125rem 1.375rem;
+    box-shadow: var(--lumen-refined-elevation-1);
+}
+
+[data-theme='navidad'] ui-page-header>div>div:first-child>ui-icon:first-child {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.875rem;
+    background: var(--lumen-primary-soft);
+    color: var(--lumen-primary);
+    border: 1px solid var(--lumen-primary-soft-border);
+}
+
+/* Cards and KPI */
+[data-theme='navidad'] ui-card>div:first-child {
+    border-radius: var(--radius-xl);
+    border-color: var(--lumen-line);
+    box-shadow: var(--lumen-refined-elevation-1);
+    transition: box-shadow 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+
+[data-theme='navidad'] ui-card>div:first-child:hover {
+    box-shadow: var(--lumen-refined-elevation-2);
+}
+
+[data-theme='navidad'] ui-card>div:first-child>div:first-child:has(h3) {
+    background: linear-gradient(180deg, var(--lumen-surface-2) 0%, var(--lumen-surface) 100%);
+    border-bottom-color: var(--lumen-line-subtle);
+}
+
+[data-theme='navidad'] ui-card>div:first-child:has(h3)>div:first-child div.text-subtle:first-child {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.125rem;
+    height: 2.125rem;
+    border-radius: 0.625rem;
+    background: var(--lumen-warning-soft);
+    color: var(--lumen-warning);
+    border: 1px solid var(--lumen-warning-soft-border);
+}
+
+[data-theme='navidad'] ui-kpi-card>div:first-child {
+    border-radius: var(--radius-xl);
+    border-color: var(--lumen-line);
+    background: var(--lumen-surface);
+    box-shadow: var(--lumen-refined-elevation-1);
+}
+
+[data-theme='navidad'] ui-kpi-card>div:first-child:hover {
+    box-shadow: var(--lumen-refined-elevation-2);
+    border-color: var(--lumen-warning-soft-border);
+    transform: translateY(-2px);
+}
+
+[data-theme='navidad'] ui-kpi-card :is(h1, h2, h3, [class*='text-2xl'], [class*='text-3xl']) {
+    letter-spacing: -0.025em;
+    font-weight: 700;
+}
+
+/* Buttons */
+[data-theme='navidad'] ui-button button {
+    border-radius: 0.75rem;
+    font-weight: 500;
+    transition: transform 150ms ease, box-shadow 180ms ease, background-color 150ms ease, border-color 150ms ease;
+}
+
+[data-theme='navidad'] ui-button button:not(:disabled):hover {
+    box-shadow: var(--lumen-refined-elevation-1);
+}
+
+[data-theme='navidad'] ui-button button:not(:disabled):active {
+    transform: scale(0.985);
+}
+
+/* Breadcrumb, badges and pagination */
+[data-theme='navidad'] ui-breadcrumb nav {
+    display: inline-flex;
+    padding: 0.375rem 0.875rem;
+    border-radius: 9999px;
+    background: var(--lumen-surface);
+    border: 1px solid var(--lumen-line);
+    box-shadow: var(--lumen-refined-elevation-1);
+}
+
+[data-theme='navidad'] ui-badge {
+    letter-spacing: 0.025em;
+    font-weight: 600;
+}
+
+[data-theme='navidad'] ui-pagination button[aria-current='page'],
+[data-theme='navidad'] ui-pagination .active {
+    background: var(--lumen-primary);
+    color: var(--lumen-on-primary);
+    box-shadow: 0 2px 8px -2px rgba(185, 28, 28, 0.45);
+}
+
+/* Tables */
+[data-theme='navidad'] ui-table thead tr,
+[data-theme='navidad'] ui-data-table thead tr {
+    background: var(--lumen-surface-2);
+}
+
+[data-theme='navidad'] ui-table thead th,
+[data-theme='navidad'] ui-data-table thead th {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--lumen-ink-3);
+}
+
+[data-theme='navidad'] ui-table tbody tr,
+[data-theme='navidad'] ui-data-table tbody tr {
+    transition: background-color 140ms ease;
+}
+
+[data-theme='navidad'] ui-table tbody tr:hover,
+[data-theme='navidad'] ui-data-table tbody tr:hover {
+    background: var(--lumen-primary-soft);
+}
+
+[data-theme='navidad'] ui-table td,
+[data-theme='navidad'] ui-data-table td {
+    border-color: var(--lumen-line-subtle);
+}
+
+/* Inputs and forms */
+[data-theme='navidad'] ui-input label,
+[data-theme='navidad'] ui-form-field label {
+    font-weight: 600;
+    color: var(--lumen-ink-2);
+}
+
+[data-theme='navidad'] ui-input :is(input, textarea, select) {
+    border-radius: 0.75rem;
+    transition: border-color 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+[data-theme='navidad'] ui-input :is(input, textarea, select):focus-visible,
+[data-theme='navidad'] ui-pin-input input:focus {
+    border-color: var(--lumen-primary);
+}
