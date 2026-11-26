@@ -1,5 +1,10 @@
 import { AppEnvironment } from './env.model';
 
+/**
+ * Servidor de TEST (pre-prod.coopsanjose.fin.ec). La imagen de Docker usa este archivo (ARG ENTORNO=pruebas en el Dockerfile).
+ * Se llama «pruebas» y no «test» porque el ejecutor de pruebas toma cualquier *.test.ts por una prueba.
+ * El front, el backend y el autenticador están en el mismo dominio: para el navegador es un solo origen.
+ */
 export const env: AppEnvironment = {
     production: false,
     enableDebugLogin: false,
@@ -13,7 +18,7 @@ export const env: AppEnvironment = {
     api: {
         baseUrl: 'https://proxy.coopsanjose.fin.ec:8443/api/v1/analitics/',
         userProfileUrl: 'https://proxy.coopsanjose.fin.ec:8443/api/v1/analitics/Usuarios/busca-usuario',
-        rolesPagoApiUrl: 'http://localhost:8080/api/v1/roles-pago/',
+        rolesPagoApiUrl: 'https://pre-prod.coopsanjose.fin.ec/rrhh-roll-administration/',
     },
     ui: {
         systemTitle: 'S.I.R.P.A - Cooperativa de Ahorro y Crédito San José Ltda.',

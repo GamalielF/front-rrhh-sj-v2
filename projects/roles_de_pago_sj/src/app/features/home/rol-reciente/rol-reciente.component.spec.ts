@@ -30,7 +30,7 @@ describe('RolRecienteComponent', () => {
     const { html } = crear();
     expect(html.textContent).toContain('Octubre 2026');
     expect(html.textContent).toContain('3 meses disponibles');
-    expect(html.textContent).toContain('se le pedirá su número de cédula');
+    expect(html.textContent).toContain('validación de número de cédula');
   });
 
   it('con un solo mes habla en singular', () => {

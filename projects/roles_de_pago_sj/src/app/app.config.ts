@@ -37,6 +37,7 @@ export const appConfig: ApplicationConfig = {
       refreshMode: 'cookie',                   // modo de refresh token, cookie o body
       withCredentials: false,                  // NO: el backend rechaza credenciales (CORS). La cookie de refresh ya viaja sola (refreshMode cookie)
       tokenStorage: 'sessionStorage',          // almacenamiento del token, localStorage o sessionStorage
+      refreshOnStartup: false,                 // al abrir sin sesión en la pestaña, pedir login (no entrar con una sesión anterior)
       enableDebugMode: env.enableDebugLogin,
     }),
     provideLumenBase({

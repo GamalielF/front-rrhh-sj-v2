@@ -1,2 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# Los scripts de shell se ejecutan en Linux (servidor de pruebas): siempre con saltos de línea LF
+*.sh text eol=lf

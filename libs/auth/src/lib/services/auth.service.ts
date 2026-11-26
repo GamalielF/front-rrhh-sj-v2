@@ -277,12 +277,15 @@ export class AuthService<TUser extends UserSession = UserSession> {
       .pipe(
         tap((response) => {
           const newToken = response?.accessToken || (response as any)?.access_token;
-          if (newToken) {
-            this.setToken(newToken);
-            const newRefreshToken = response?.refreshToken || (response as any)?.refresh_token;
-            if (newRefreshToken) {
-              this.setRefreshToken(newRefreshToken);
-            }
+          if (!newToken) {
+            // Algunos servicios responden HTTP 200 con un error en el cuerpo ({"status":"401",...}).
+            // Sin token NO hay sesión: se trata como un fallo para que nadie entre sin iniciar sesión.
+            throw new Error('La renovación de la sesión no devolvió un token');
+          }
+          this.setToken(newToken);
+          const newRefreshToken = response?.refreshToken || (response as any)?.refresh_token;
+          if (newRefreshToken) {
+            this.setRefreshToken(newRefreshToken);
           }
         }),
         catchError((error) => throwError(() => error))
